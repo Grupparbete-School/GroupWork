@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/GroupWork/static/css/main.dfa2d3af.css",
+    "main.js": "/GroupWork/static/js/main.8af6112c.js",
+    "static/js/787.6b396868.chunk.js": "/GroupWork/static/js/787.6b396868.chunk.js",
+    "index.html": "/GroupWork/index.html",
+    "main.dfa2d3af.css.map": "/GroupWork/static/css/main.dfa2d3af.css.map",
+    "main.8af6112c.js.map": "/GroupWork/static/js/main.8af6112c.js.map",
+    "787.6b396868.chunk.js.map": "/GroupWork/static/js/787.6b396868.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dfa2d3af.css",
+    "static/js/main.8af6112c.js"
+  ]
+}
