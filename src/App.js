@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import RegisterPage from './pages/Register';
+import ProjectPage from './pages/Project';
+import TimePage from './pages/TimeDist';
+import {BrowserRouter as HashRouter, Route, Routes} from "react-router-dom";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <HashRouter>
+        <Header>
+          <Routes>
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/project" element={<ProjectPage />} />
+            <Route path="/timeDist" element={<TimePage />} />
+          </Routes>
+        </Header>
+      </HashRouter> //comment
   );
 }
 
