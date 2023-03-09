@@ -15,7 +15,7 @@ function App() {
             <Route path="/timeDist" element={<TimePage />} />
           </Routes>
         </Header>
-      </HashRouter> //comment
+      </HashRouter> 
   );
 }
 
