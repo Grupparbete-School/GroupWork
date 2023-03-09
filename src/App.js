@@ -2,12 +2,12 @@ import Header from './components/Header';
 import RegisterPage from './pages/Register';
 import ProjectPage from './pages/Project';
 import TimePage from './pages/TimeDist';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {BrowserRouter as HashRouter, Route, Routes} from "react-router-dom";
 
 function App() {
 
   return (
-      <BrowserRouter>
+      <HashRouter>
         <Header>
           <Routes>
             <Route path="/register" element={<RegisterPage />} />
@@ -15,7 +15,7 @@ function App() {
             <Route path="/timeDist" element={<TimePage />} />
           </Routes>
         </Header>
-      </BrowserRouter>
+      </HashRouter>
   );
 }
 
