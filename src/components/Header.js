@@ -17,7 +17,8 @@ function classNames(...classes) {
 
 export default function Header(props) {
   return (
-    <Disclosure as="nav" className="bg-pink-900">
+    <>
+    <Disclosure as="nav" className="bg-teal-600">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -54,8 +55,9 @@ export default function Header(props) {
                         to={item.href}
                         className={({isActive}) => {
                           return 'rounded-md px-3 py-2 text-sm font-medium no-underline' +
-                          (!isActive ? 'text-gray-300 hover:bg-gray-700 hover:text-white' 
-                                    : 'bg-gray-900 text-white' )
+                          (!isActive 
+                            ? 'text-gray-300 hover:bg-gray-700 hover:text-white' 
+                            : 'bg-gray-900 text-white' )
                         }}
                       >
                         {item.name}
@@ -65,13 +67,13 @@ export default function Header(props) {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
+                {/* <button
                   type="button"
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+                </button> */}
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
@@ -99,9 +101,9 @@ export default function Header(props) {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-300' : '', 'block px-4 py-2 text-sm text-black')}
                           >
-                            Your Profile
+                            Min profil
                           </a>
                         )}
                       </Menu.Item>
@@ -109,9 +111,9 @@ export default function Header(props) {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-300' : '', 'block px-4 py-2 text-sm text-black')}
                           >
-                            Settings
+                            Inställningar
                           </a>
                         )}
                       </Menu.Item>
@@ -119,9 +121,9 @@ export default function Header(props) {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? 'bg-gray-300' : '', 'block px-4 py-2 text-sm text-black')}
                           >
-                            Sign out
+                            Logga ut
                           </a>
                         )}
                       </Menu.Item>
@@ -140,7 +142,9 @@ export default function Header(props) {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    item.current 
+                    ? 'bg-gray-900 text-white' 
+                    : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
@@ -150,9 +154,12 @@ export default function Header(props) {
               ))}
             </div>
           </Disclosure.Panel>
-          {props.children}
         </>
       )}
     </Disclosure>
-  )
+    <div className="bg-gray-200">
+      <div className="mx-auto min-h-screen px-2 py-2">{props.children}</div>
+    </div>
+    </>
+  );
 }
