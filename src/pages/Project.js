@@ -1,5 +1,9 @@
 function ProjectPage(){
-    return <div></div>
+    return (
+        <section>
+            <h1>Se alla projekt</h1>
+        </section>
+      );
 }
 
 export default ProjectPage;

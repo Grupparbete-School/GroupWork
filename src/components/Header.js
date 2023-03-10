@@ -4,11 +4,11 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from 'react-router-dom'
 
 const navigation = [
+  { name: 'Hem', href: '/Home' },
   { name: 'Registrering', href: '/Register' },
-  { name: 'Projekt', href: '/Project' },
   { name: 'Timfördelning', href: '/TimeDist' },
-  { name: 'Rapporter', href: '/other' },
-  { name: 'Kalender', href: '/other2' },
+  { name: 'Projekt', href: '/Project' },
+  { name: 'Rapporter', href: '/Report' },
 ]
 
 function classNames(...classes) {
@@ -100,7 +100,7 @@ export default function Header(props) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href='/MyProfil'
                             className={classNames(active ? 'bg-gray-300' : '', 'block px-4 py-2 text-sm text-black')}
                           >
                             Min profil
@@ -110,7 +110,7 @@ export default function Header(props) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href='/Settings'
                             className={classNames(active ? 'bg-gray-300' : '', 'block px-4 py-2 text-sm text-black')}
                           >
                             Inställningar
@@ -120,7 +120,7 @@ export default function Header(props) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href='/LogOut'
                             className={classNames(active ? 'bg-gray-300' : '', 'block px-4 py-2 text-sm text-black')}
                           >
                             Logga ut
