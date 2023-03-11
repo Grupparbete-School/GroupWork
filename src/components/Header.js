@@ -100,7 +100,7 @@ export default function Header(props) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href='/MyProfil'
+                            href='#/MyProfil'
                             className={classNames(active ? 'bg-gray-300' : '', 'block px-4 py-2 text-sm text-black')}
                           >
                             Min profil
@@ -110,7 +110,7 @@ export default function Header(props) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href='/Settings'
+                            href='#/Settings'
                             className={classNames(active ? 'bg-gray-300' : '', 'block px-4 py-2 text-sm text-black')}
                           >
                             Inställningar
@@ -120,7 +120,7 @@ export default function Header(props) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href='/LogOut'
+                            href='#/LogOut'
                             className={classNames(active ? 'bg-gray-300' : '', 'block px-4 py-2 text-sm text-black')}
                           >
                             Logga ut
