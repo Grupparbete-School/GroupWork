@@ -1,27 +1,27 @@
+import React from 'react';
 import Header from './components/Header';
-import HomePage from './pages/Home';
-import RegisterPage from './pages/Register';
-import TimePage from './pages/TimeDist';
-import ProjectPage from './pages/Project';
-import ReportPage from './pages/Report';
+import Home from './pages/Home';
+import Register from './pages/Register';
+import Time from './pages/TimeDist';
+import Project from './pages/Project';
+import Report from './pages/Report';
 import MyProfil from './pages/MyProfil';
 import Settings from './pages/Settings';
 import LogOut from './pages/LogOut';
-import {BrowserRouter as HashRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 
 
-
-function App() {
+export default function App() {
 
   return (
       <HashRouter>
         <Header>
           <Routes>
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/timeDist" element={<TimePage />} />
-            <Route path="/project" element={<ProjectPage />} />
-            <Route path="/report" element={<ReportPage />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/timeDist" element={<Time />} />
+            <Route path="/project" element={<Project />} />
+            <Route path="/report" element={<Report />} />
             <Route path="/myprofil" element={<MyProfil />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/logout" element={<LogOut />} />
@@ -29,6 +29,4 @@ function App() {
         </Header>
       </HashRouter> 
   );
-}
-
-export default App;
+};
