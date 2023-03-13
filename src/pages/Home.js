@@ -1,7 +1,8 @@
 export default function Home(){
     return (
         <section>
-            <h1>Startsida som alla får ta del av</h1>
+            <h1>In/ut-stämpling</h1>
+            <h1>Övergripande information</h1>
         </section>
     );
   };

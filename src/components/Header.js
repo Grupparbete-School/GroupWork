@@ -8,8 +8,7 @@ const today = new Date();
 const navigation = [
   { name: 'Hem', href: '/Home' },
   { name: 'Registrering', href: '/Register' },
-  { name: 'Timfördelning', href: '/Time' },
-  { name: 'Projekt', href: '/Project' },
+  { name: 'Mina projekt', href: '/Project' },
   { name: 'Rapporter', href: '/Report' },
 ]
 
