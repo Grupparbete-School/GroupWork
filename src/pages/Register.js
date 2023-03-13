@@ -1,7 +1,7 @@
 export default function Register(){
   return (
     <section>
-        <h1>Registrera för in- och utstämpling varje dag</h1>
+        <h1>Kanske ta bort denna</h1>
     </section>
   );
 };
