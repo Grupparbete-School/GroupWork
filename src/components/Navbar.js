@@ -7,16 +7,15 @@ const today = new Date();
 
 const navigation = [
   { name: 'Hem', href: '/Home' },
-  { name: 'Registrering', href: '/Register' },
   { name: 'Mina projekt', href: '/Project' },
-  { name: 'Rapporter', href: '/Report' },
+  { name: 'Mina uppgifter', href: '/Information' },
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Header(props) {
+export default function Navbar(props) {
   return (
     <>
     <Disclosure 
