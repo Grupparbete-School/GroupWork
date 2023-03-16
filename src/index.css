@@ -11,6 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.loginBackground{
+  background-image: url('../public/images/johnson-wang-iI4sR_nkkbc-unsplash.jpg');
+}
+
+.loginContainer{
+  background-color: white;
+  
+}
+
+.clickable-icon{
+  cursor: pointer;
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
