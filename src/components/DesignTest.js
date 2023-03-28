@@ -3,19 +3,20 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars4Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from 'react-router-dom'
 
+
 const today = new Date();
 
 const navigation = [
   { name: 'Hem', href: '/Home' },
-  { name: 'Projekt', href: '/Project' },
-  { name: 'Rapporter', href: '/Report' },
+  { name: 'Mina projekt', href: '/Project' },
+  { name: 'Mina uppgifter', href: '/Information' },
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar2(props) {
+export default function Navbar(props) {
   return (
     <>
     <Disclosure 
@@ -65,7 +66,7 @@ export default function Navbar2(props) {
                         className={({isActive}) => {
                           return 'rounded-md px-3 py-2 text-sm font-medium no-underline' +
                           (!isActive 
-                            ? 'text-cyan-700 hover:cyan-700 hover:text-white' 
+                            ? 'text-cyan-700 hover:bg-cyan-700 hover:text-white'
                             : 'bg-cyan-700 text-white' )
                         }}
                       >
@@ -154,7 +155,7 @@ export default function Navbar2(props) {
                   key={item.name}
                   to={item.href}
                   className={({isActive}) => {
-                    return 'block px-3 py-2 rounded-md text-base font medium no-underline' +
+                    return 'block px-3 py-2 rounded-md text-base font medium no-underline text-white' +
                     (!isActive 
                       ? 'text-cyan-700 hover:bg-cyan-700 hover:text-white' 
                       : 'bg-cyan-700 text-white' )
@@ -168,6 +169,10 @@ export default function Navbar2(props) {
         </>
       )}
     </Disclosure>
+    <div className="bg-img">
+      <div className="mx-auto min-h-screen px-2 py-2">{props.children}</div>
+    </div>
+    <footer>Here we can put the footer. Copyright &copy; {today.getFullYear()}</footer>
     </>
   );
 };

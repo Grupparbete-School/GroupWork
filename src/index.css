@@ -12,6 +12,8 @@ code {
     monospace;
 }
 
+/* LOGIN */
+
 .loginBackground{
   background-image: url('../public/images/johnson-wang-iI4sR_nkkbc-unsplash.jpg');
 }
@@ -25,6 +27,143 @@ code {
   cursor: pointer;
 }
 
+
+/* FIRST PAGE */
+.backgroundColor {
+  background-color: #0e74902f;
+}
+
+.picHeader{
+  position: relative;
+  height: auto;
+  width: auto;
+}
+
+.card-img-top {
+  height: 150px;
+  width: 250px;
+}
+
+.card{
+  width: 250px;
+  padding: 10px;
+}
+
+.col{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 250px;
+  padding: 5px;
+}
+
+.card-container{
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 700px) {
+  .col{
+    flex: column wrap;
+  }
+  .card-container{
+    flex-wrap: wrap;
+  }
+}
+
+footer {
+  background-color: #164e63bd;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  }
+
+
+  
+/* BUTTONS */
+.login-button {
+  position: absolute;
+  font-weight: 800;
+  font-size: 14px;
+  color: #fcfbfb;
+  background: linear-gradient(90deg, #0e7490 20%, #164e63 70%);
+  padding: 10px 30px;
+  border: solid #28363D 1px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 50px;
+  transition : 835ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  cursor: pointer;
+  right: 0;
+  top: 1%;
+  right: 2%;
+}
+
+.login-button:hover{
+  transition : 835ms;
+  padding: 10px 44px;
+  transform : translateY(-0px);
+  background: linear-gradient(90deg, #0e7490 20%, #164e63 70%);
+  color: #f1f4f7;
+  border: solid 1px #28363D;
+  }
+
+
+.default-btn{
+  font-family: Roboto, sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: #fcfbfb;
+  background: linear-gradient(90deg, #0e7490 0%, #164e63 70%);
+  padding: 10px 30px;
+  border: solid #28363D 1px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 50px;
+  transition : 835ms;
+  transform: translateY(0);
+  cursor: pointer;
+}
+
+.default-btn:hover{
+  transition : 835ms;
+  padding: 10px 44px;
+  transform : translateY(-0px);
+  background: linear-gradient(90deg, #0e7490 20%, #164e63 70%);
+  color: #f1f4f7;
+  border: solid 1px #28363D;
+  }
+
+
+
+
+
+
+/* COLOR SCHEME */
+.color1{
+  color: #DEE1DD;
+}
+.color2{
+  color: #C4CDC1;
+}
+.color3{
+  color: #99AEAD;
+}
+.color4{
+  color: #6D9197;
+}
+.color5{
+  color: #658B6F;
+}
+.color6{
+  color: #2F575D;
+}
+.color7{
+  color: #28363D;
+}
 
 @tailwind base;
 @tailwind components;
