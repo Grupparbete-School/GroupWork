@@ -1,8 +1,10 @@
 
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Dashbord from "./components/Dashbord";
 import Login from './components/Login';
-import FirstPage from './components/FirstPage';
+
 
 export default function App() {
   return (
