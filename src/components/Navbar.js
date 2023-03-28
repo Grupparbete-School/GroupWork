@@ -20,7 +20,7 @@ export default function Navbar(props) {
     <>
     <Disclosure 
       as="nav" 
-      className="bg-teal-600"
+      className="bg-cyan-900"
     >
       {({ open }) => (
         <>
@@ -28,7 +28,7 @@ export default function Navbar(props) {
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-cyan-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon  //close symbol X on mobile menu
@@ -56,7 +56,7 @@ export default function Navbar(props) {
                     alt="Your Company"
                   />
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
+                <div className="hidden sm:ml-6 sm:block text-white">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <NavLink  //has active link built into it
@@ -65,8 +65,8 @@ export default function Navbar(props) {
                         className={({isActive}) => {
                           return 'rounded-md px-3 py-2 text-sm font-medium no-underline' +
                           (!isActive 
-                            ? 'text-gray-300 hover:bg-gray-700 hover:text-white' 
-                            : 'bg-gray-900 text-white' )
+                            ? 'text-cyan-700 hover:bg-cyan-700 hover:text-white' 
+                            : 'bg-cyan-700 text-white' )
                         }}
                       >
                         {item.name}
@@ -147,7 +147,7 @@ export default function Navbar(props) {
           </div>
 
           <Disclosure.Panel 
-            className="sm:hidden">
+            className="sm:hidden text-white">
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => (
                 <NavLink  //has active link built into it
@@ -156,8 +156,8 @@ export default function Navbar(props) {
                   className={({isActive}) => {
                     return 'block px-3 py-2 rounded-md text-base font medium no-underline' +
                     (!isActive 
-                      ? 'text-gray-300 hover:bg-gray-700 hover:text-white' 
-                      : 'bg-gray-900 text-white' )
+                      ? 'text-cyan-700 hover:bg-cyan-700 hover:text-white' 
+                      : 'bg-cyan-700 text-white' )
                   }} 
                 >
                   {item.name}
@@ -168,10 +168,6 @@ export default function Navbar(props) {
         </>
       )}
     </Disclosure>
-    <div className="bg-gray-200">
-      <div className="mx-auto min-h-screen px-2 py-2">{props.children}</div>
-    </div>
-    <footer>Here we can put the footer. Copyright &copy; {today.getFullYear()}</footer>
     </>
   );
 };
