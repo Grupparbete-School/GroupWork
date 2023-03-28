@@ -26,7 +26,7 @@ export default function Dashboard(){
         //Här lägger vi till innehållet via set i useState variablerna ovan.
         setRole(role);
         setName(name);
-        setEmail(email);
+        setEmail("");
 
         //här sätter vi innehållet av variablerna till webbläsarens localStorage
         localStorage.setItem('userRole', role);
