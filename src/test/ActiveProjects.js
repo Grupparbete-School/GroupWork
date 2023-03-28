@@ -13,7 +13,7 @@ export default function FetchPeople2() {
     .then(res => res.json())
     .then((result) => {
       const ppl = result.filter(
-        usr => usr.Email.toLowerCase() === "ewahlstrom90@gmail.com");
+        usr => usr.Email.toLowerCase() === localStorage.getItem("userEmail"));
       setPeople(ppl);
       console.log(ppl)
     },
