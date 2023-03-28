@@ -168,10 +168,6 @@ export default function Navbar2(props) {
         </>
       )}
     </Disclosure>
-    <div className="bg-gray-200">
-      <div className="mx-auto min-h-screen px-2 py-2">{props.children}</div>
-    </div>
-    <footer>Here we can put the footer. Copyright &copy; {today.getFullYear()}</footer>
     </>
   );
 };

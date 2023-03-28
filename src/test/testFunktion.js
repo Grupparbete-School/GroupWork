@@ -1,10 +1,11 @@
 import {useState, useEffect} from 'react'
+
 export default function FetchPeople(){
     const [error, setError] = useState(null)
     const[isloaded, setIsLoaded] = useState(false)
     const [items, setItems] = useState([])
     useEffect(()=>{
-        fetch("http://localhost:5000")
+        fetch("http://localhost:5000/people")
         .then(res => res.json())
         .then(
             (result)=>{
