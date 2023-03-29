@@ -1,14 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Navbar2 from './Navbar2';
-import Home from '../pages/Home';
-import Project from '../pages/Project';
-import Report from '../pages/Report';
-import Information from '../pages/Information';
-import MyProfil from '../pages/MyProfil';
-import Settings from '../pages/Settings';
-import LogOut from '../pages/LogOut';
-import {Route, Routes} from "react-router-dom";
 import { useEffect, useState } from 'react';
 
 export default function Dashboard(){
@@ -34,7 +26,7 @@ export default function Dashboard(){
         //Här lägger vi till innehållet via set i useState variablerna ovan.
         setRole(role);
         setName(name);
-        setEmail(email);
+        setEmail("");
 
         //här sätter vi innehållet av variablerna till webbläsarens localStorage
         localStorage.setItem('userRole', role);
@@ -68,15 +60,6 @@ export default function Dashboard(){
     return (
       <div>
         {NavbarOne}
-            <Routes>
-              <Route path="/home" element={<Home />} />
-              <Route path="/project" element={<Project />} />
-              <Route path="/report" element={<Report />} />
-              <Route path="/information" element={<Information />} />
-              <Route path="/myprofil" element={<MyProfil />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/logout" element={<LogOut />} />
-            </Routes>
       </div>
     );
 };
