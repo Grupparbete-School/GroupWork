@@ -1,6 +1,7 @@
+import React from 'react';
+import Footer from './Footer';
 import '../index.css';
 import header from './F_img/frontPage-header.jpg';
-import React from 'react';
 import firstImg from './F_img/Systembuilders1.jpg';
 import secondImg from './F_img/Systembuilders2.jpg';
 import thirdImg from './F_img/Systembuilders3.jpg';
@@ -15,7 +16,7 @@ export default function FirstPage () {
             <a href="http://localhost:3000/login"><button className="login-button">Login</button></a>
 
             <MainContent />
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );
 };
@@ -96,12 +97,3 @@ function MainContent () {
       </div>
     );
 };
-
-
-function Footer() {
-    return (
-      <footer>
-        <p>&copy; 2023 Systembuilders AB. All rights reserved.</p>
-      </footer>
-    );
-  }
