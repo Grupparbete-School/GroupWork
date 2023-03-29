@@ -7,10 +7,10 @@ export default function TimeForm() {
     const [activeItems, setActiveItems] = useState([ProjectDTO("0")]);
     const [selectedItem, setSelectedItem] = useState(activeItems[0]);
     const [personId, setPersonId] = useState("");
-    const [date, setDate] = useState(null);
-    const [hours, setHours] = useState(null);
+    const [date, setDate] = useState();
+    const [hours, setHours] = useState();
 
-    const handleChange = (e) => {
+    const handleChange = (e) => { 
         setSelectedItem(e.target.value);
     }
 
@@ -24,8 +24,8 @@ export default function TimeForm() {
                     newList.push(ProjectDTO(result[index].Status, result[index].ProjectName, result[index].Id))
                 }
                 setActiveItems(newList.filter(item => item.status === "Active"));
-            } 
-        ); 
+            }, 
+        );
     }, []); 
 
     useEffect(() => {
@@ -37,8 +37,8 @@ export default function TimeForm() {
                     usr.Email.toLowerCase() === localStorage.getItem("userEmail")
                 );
                 setPersonId(ppl[0].PersonId);
-            }  
-        );  
+            },  
+        );
     }, []); 
     
     const handleSubmit = (event) => {
@@ -64,13 +64,14 @@ export default function TimeForm() {
 
         return (
             <>
-            <form onSubmit={handleSubmit}>
+            <form className="Form-container" onSubmit={handleSubmit}> 
                 <div className="relative max-w-sm">
                     <label for="Projects">Projekt</label>
-                    <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" value={selectedItem} 
+                    <select className="Form-input" value={selectedItem} required
                     onChange={handleChange}> 
+                    <option value="">Välj projekt</option>
                     {activeItems.map((item, index) => 
-                    ( <option 
+                    ( <option
                         key={index} 
                         value={item.id}> 
                         {item.projectName} 
@@ -81,10 +82,11 @@ export default function TimeForm() {
                 <div className="relative max-w-sm">
                     <label for="Date">Datum
                         <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            type="date" 
+                            id="formInput"
+                            type="date" required 
                             value={date} 
                             onChange={(e) => setDate(e.target.value)} 
-                            id="InputForm2" placeholder="DateTime">
+                            placeholder="DateTime">
                         </input>
                     </label>
                 </div>
@@ -92,17 +94,18 @@ export default function TimeForm() {
                 <div className="relative max-w-sm">
                     <label for="Hours">Antal timmar
                         <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            type="number" 
+                            type="number" required 
                             value={hours} 
                             onChange={(e) => setHours(e.target.value)} 
-                            id="InputForm3" placeholder="00,00">
+                            placeholder="00,00">
                         </input>
                     </label>
                 </div>
 
                 <div className="flex items-center justify-between">
                 <button
-                className="bg-cyan-500 hover:bg-cyan-700 text-grey-900 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+                className="Form-button" 
+                id="Formbutton"
                 type="submit">
                     Lägg till</button>
                 </div>
