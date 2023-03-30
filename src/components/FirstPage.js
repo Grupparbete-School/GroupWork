@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from './Footer';
 import '../index.css';
 import header from './F_img/frontPage-header.jpg';
 import firstImg from './F_img/Systembuilders1.jpg';
@@ -16,7 +15,6 @@ export default function FirstPage () {
             <a href="http://localhost:3000/login"><button className="login-button">Login</button></a>
 
             <MainContent />
-            {/* <Footer/> */}
         </div>
     );
 };

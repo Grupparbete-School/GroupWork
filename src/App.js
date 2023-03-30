@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Dashbord from "./components/Dashbord";
 import Login from './components/Login'
-import FetchPeople2 from './test/ActiveProjects';
+import FirstPage from './components/FirstPage'
 
 export default function App() {
   return (
@@ -13,6 +13,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<FirstPage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/dashbord" element={<Dashbord />} />
         </Routes>
       </BrowserRouter>
       <Footer/>

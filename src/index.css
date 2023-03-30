@@ -70,6 +70,11 @@ code {
   .card-container{
     flex-wrap: wrap;
   }
+  .Container-mainContent{
+    background-image: url('../public/images/Bg-pic.jpeg');
+    width: auto;
+    height: 100vw;
+  }
 }
 
 
@@ -78,9 +83,14 @@ code {
 footer {
   background-color: #164e63bd;
   text-align: center;
-  padding: 1px;
-  padding-top: 12px;
   color: white;
+  margin-top: auto; 
+  height: 50px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  padding-top: 15px; 
+  width: 100%;
   }
 
 
@@ -141,9 +151,13 @@ footer {
   }
 
 
+/* BACKGROND */
 
-
-
+.Container-mainContent{
+  background-image: url('../public/images/Bg-pic.jpeg');
+  width: auto;
+  height: 88vh;
+}
 
 /* COLOR SCHEME */
 .color1{
