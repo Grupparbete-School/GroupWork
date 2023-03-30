@@ -53,7 +53,7 @@ export default function Dashboard() {
 
   let NavbarOne = "";
   let MainContent = "";
-  if (userRole === 'user') {
+  if (userRole === 'project manager') {
     NavbarOne = <Navbar />
     MainContent = <ActiveProjects />
   }
@@ -72,7 +72,7 @@ export default function Dashboard() {
     return (
       <div className='backgroundColor'> 
         {NavbarOne}
-        <div className='Container-mainContent'>
+        <div  className='container-MainContent'>
         {MainContent}
         </div>
       </div>

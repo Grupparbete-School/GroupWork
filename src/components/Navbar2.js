@@ -4,6 +4,8 @@ import { Bars4Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Badge from 'react-bootstrap/Badge';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const today = new Date();
 
@@ -30,14 +32,14 @@ export default function Navbar2(props) {
         (result) => {
           const newResults = [];
           for (let i = 0; i < result.length; i++) {
-            if (result[i].HoursLeft <= -5) {
+            if (result[i].HoursLeft <= 0) {
               setHasData(true)
               newResults.push(result[i]);
             }
           }
 
           setTotalHours(newResults)
-          console.log(newResults)
+          console.log(totalHours)
         }
       )
   }, [])
@@ -84,15 +86,15 @@ export default function Navbar2(props) {
                   </div>
                   <div className="hidden sm:ml-6 sm:block text-white">
                     <div className="flex space-x-4">
-                      {navigation.map((item) => (
+                      {navigation.map((item, index) => (
                         <NavLink  //has active link built into it
-                          key={item.name}
+                          key={index}
                           to={item.href}
                           className={({ isActive }) => {
                             return 'rounded-md px-3 py-2 text-sm font-medium no-underline ' +
                               (!isActive
 
-                                ? 'text-white hover:cyan-700 hover:text-white '
+                                ? 'text-white hover:bg-cyan-700 hover:text-white '
 
                                 : 'bg-cyan-700 text-white')
                           }}
@@ -125,22 +127,30 @@ export default function Navbar2(props) {
                     )}
                   </button>
                   {showNotifications && (
-                    <div>
+                    <div className='list-container'>
                       {totalHours.map((item, index) => {
                           return (
-                            <div key={index} className="absolute right-10 z-10 top-16 w-30 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5">
-                              <div key={index} className="card" style={{ width: '14rem', height: '' }}>
-                                <div class="card-header">
-                                  <h5 className="card-title text-danger">{item.ProjectName} is above budget</h5>
-                                </div>
-                                <div className="card-body">
-                                  <p className="card-text">
-                                    {item.ProjectName} is {Math.abs(item.HoursLeft)} hours above the maximum set amount.
-                                  </p>
-                                  <a href="#" className="btn default-btn text-white">Update time</a>
-                                </div>
+                            <div >
+                              <div key={index} className='list-hours'>
+                                <ListGroup as="ol" >
+                                  <ListGroup.Item
+                                    as="li"
+                                    className="d-flex justify-content-between align-items-start" 
+                                  >
+                                    <div className="ms-4 me-auto">
+                                      <div className="fw-bold">{item.ProjectName}</div>
+                                      {item.ProjectName} is {Math.abs(item.HoursLeft)} hours above the maximum set amount.
+                                    </div>
+                                    <Badge bg="danger" pill>
+                                      {item.HoursLeft}
+                                    </Badge>
+                                  </ListGroup.Item>
+                                </ListGroup>
                               </div>
                             </div>
+
+
+
                           )
                         })}
                     </div>
@@ -236,7 +246,19 @@ export default function Navbar2(props) {
 };
 
 
-
+                            // <div key={index} className="absolute right-10 z-10 top-16 w-30 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5">
+                            //   <div key={index} className="card" style={{ width: '14rem', height: '' }}>
+                            //     <div className="card-header">
+                            //       <h5 className="card-title text-danger">{item.ProjectName} is above budget</h5>
+                            //     </div>
+                            //     <div className="card-body">
+                            //       <p className="card-text">
+                            //         {item.ProjectName} is {Math.abs(item.HoursLeft)} hours above the maximum set amount.
+                            //       </p>
+                            //       <a href="#" className="btn default-btn text-white">Update time</a>
+                            //     </div>
+                            //   </div>
+                            // </div>
 
 
 

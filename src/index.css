@@ -12,6 +12,20 @@ code {
     monospace;
 }
 
+
+/* BACKGROND */
+
+.container-MainContent{
+  background-image: url('../public/images/Bg-pic.jpeg');
+  width: 100%;
+  height: auto;
+  min-height: 88vh;
+}
+
+.backgroundColor {
+  background-color: #0e74902f;
+}
+
 /* LOGIN */
 
 .loginBackground{
@@ -20,7 +34,6 @@ code {
 
 .loginContainer{
   background-color: white;
-  
 }
 
 .clickable-icon{
@@ -28,10 +41,7 @@ code {
 }
 
 
-/* FIRST PAGE */
-.backgroundColor {
-  background-color: #0e74902f;
-}
+/* CARDS */
 
 .picHeader{
   position: relative;
@@ -61,41 +71,13 @@ code {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
-
-@media screen and (max-width: 700px) {
-  .col{
-    flex: column wrap;
-  }
-  .card-container{
-    flex-wrap: wrap;
-  }
-  .Container-mainContent{
-    background-image: url('../public/images/Bg-pic.jpeg');
-    width: auto;
-    height: 100vw;
-  }
-}
-
-
-
-/* FOOTER */
-footer {
-  background-color: #164e63bd;
-  text-align: center;
-  color: white;
-  margin-top: auto; 
-  height: 50px; 
-  display: flex; 
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  padding-top: 15px; 
-  width: 100%;
-  }
+}
 
 
-  
 /* BUTTONS */
+
 .login-button {
   position: absolute;
   font-weight: 800;
@@ -124,7 +106,7 @@ footer {
   background: linear-gradient(90deg, #0e7490 20%, #164e63 70%);
   color: #f1f4f7;
   border: solid 1px #28363D;
-  }
+}
 
 
 .default-btn{
@@ -148,16 +130,73 @@ footer {
   background: linear-gradient(90deg, #0e7490 20%, #164e63 70%);
   color: #f1f4f7;
   border: solid 1px #28363D;
+}
+
+.list-container{
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  margin-top: 60px;
+  margin-right: 70px;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+}
+
+.list-hours{
+  margin-bottom: 10px;
+}
+
+.list-color{
+  background-color: #0e7490;
+}
+
+/* SMALLER SCREEN SPEC */
+
+@media screen and (max-width: 700px) {
+  .col{
+    flex: column wrap;
+  }
+  .card-container{
+    flex-wrap: wrap;
+  }
+  .container-MainContent{
+    background-image: url('../public/images/Bg-pic.jpeg');
+    width: 100%;
+    height: auto;
+    min-height: 88vh;
+  }
+  .list-container{
+    top: 0;
+    margin-top: 60px;
+    margin-right: 70px;
+    position: absolute;
+    right: 0;
+    z-index: 10;  
+  }
+
+  .list-hours{
+    width: 300px;
+  }
+}
+
+
+/* FOOTER */
+footer {
+  background-color: #164e63bd;
+  text-align: center;
+  color: white;
+  margin-top: auto; 
+  height: 50px; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  padding-top: 15px; 
+  width: 100%;
   }
 
 
-/* BACKGROND */
 
-.Container-mainContent{
-  background-image: url('../public/images/Bg-pic.jpeg');
-  width: auto;
-  height: 88vh;
-}
 
 /* COLOR SCHEME */
 .color1{
