@@ -42,7 +42,7 @@ export default function FetchPeople2() {
       
       const matchedProjects = items.filter(project => {
         console.log(project)
-        return project.peopleId.some(id => people[0].TimeReportsId.includes(id))
+        return project.PersonId.some(id => people[0].TimeReportsId.includes(id))
       })
       setIsLoaded(true)
       console.log(matchedProjects);

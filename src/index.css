@@ -78,10 +78,14 @@ code {
   }
 }
 
+
+
+/* FOOTER */
 footer {
   background-color: #164e63bd;
   text-align: center;
-  padding: 10px;
+  padding: 1px;
+  padding-top: 12px;
   color: white;
   }
 
@@ -126,7 +130,6 @@ footer {
 
 
 .default-btn{
-  font-family: Roboto, sans-serif;
   font-weight: 800;
   font-size: 14px;
   color: #fcfbfb;

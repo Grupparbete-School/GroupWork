@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
-// import FirstPage from './components/FirstPage'
-import TimeAdd from './pages/TimeAdd'
+import App from './App';
+import ActiveProjects from './test/ActiveProjects';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <TimeAdd />
+     <ActiveProjects />
+    // <div>
+    //     <App />
+    // <div>
+    // {/* <ActiveProjects /> */}
+    // </div>
+    // </div>
 );
