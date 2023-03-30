@@ -63,6 +63,12 @@ code {
   flex-wrap: wrap;
 }
 
+.form-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
 @media screen and (max-width: 700px) {
   .col{
     flex: column wrap;
@@ -83,6 +89,12 @@ footer {
   color: white;
   }
 
+  /*FORM HEADING*/
+.form-heading{
+  font-weight: 800;
+  font-size: 17px;
+  padding: 15px;
+}
 
   
 /* BUTTONS */
@@ -140,8 +152,48 @@ footer {
   border: solid 1px #28363D;
   }
 
+  .form-button {
+    font-weight: 800;
+    font-size: 17px;
+    color: #fcfbfb;
+    background: linear-gradient(90deg, #0e7490 20%, #164e63 70%);
+    padding: 15px 100px;
+    border: solid #28363D 1px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 50px;
+    transition : 835ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    cursor: pointer;
+  }
+  
+  .form-button:hover{
+    transition : 835ms;
+    transform : translateY(-0px);
+    background: linear-gradient(90deg, #0e7490 20%, #164e63 70%);
+    color: #f1f4f7;
+    border: solid 1px #28363D;
+  }
 
+  .swal-popup{
+    background-color: #fcfbfb;
+    padding: 17px;
+    border: 1px solid #F0E1A1;
+    display: block;
+    margin: 22px;
+    text-align: center;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+  }
 
+  .swal-button {
+    font-weight: 800;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #0e7490 20%, #164e63 70%);
+    font-size: 17px;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+  }
 
 
 
