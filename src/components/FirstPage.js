@@ -11,7 +11,7 @@ export default function FirstPage () {
 
     return(
         <div  className='backgroundColor'>
-            <img src={header} className='picHeader' />
+            <img src={header} className='picHeader' alt="Office representation" />
             <a href="http://localhost:3000/login"><button className="login-button">Login</button></a>
 
             <MainContent />

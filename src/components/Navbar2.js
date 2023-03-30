@@ -148,9 +148,6 @@ export default function Navbar2(props) {
                                 </ListGroup>
                               </div>
                             </div>
-
-
-
                           )
                         })}
                     </div>

@@ -53,7 +53,9 @@ export default function Dashboard() {
 
   let NavbarOne = "";
   let MainContent = "";
-  if (userRole === 'project manager') {
+
+  if (userRole === 'user') {
+
     NavbarOne = <Navbar />
     MainContent = <ActiveProjects />
   }
