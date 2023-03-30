@@ -28,7 +28,7 @@ function MainContent () {
           <section className="card-container">
 
             <div className="col">
-
+                
                     <div className="card">
                         <img src={firstImg} className="card-img-top" alt="Welding" />
                         <div className="card-body">
@@ -39,7 +39,7 @@ function MainContent () {
                             delivering projects that exceed expectations.</p>
                             <br/>
                         </div>
-                    </div>
+                        </div>
 
             </div>
 
