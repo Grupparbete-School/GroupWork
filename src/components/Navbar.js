@@ -65,10 +65,10 @@ export default function Navbar(props) {
                         key={item.name}
                         to={item.href}
                         className={({isActive}) => {
-                          return 'rounded-md px-3 py-2 text-sm font-medium no-underline' +
+                          return 'rounded-md px-3 py-2 text-sm font-medium no-underline ' +
                           (!isActive 
 
-                            ? 'text-cyan-700 hover:bg-cyan-700 hover:text-white' 
+                            ? 'text-white hover:bg-cyan-700 hover:text-white' 
 
                             : 'bg-cyan-700 text-white' )
                         }}
@@ -113,7 +113,7 @@ export default function Navbar(props) {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
+                      {/* <Menu.Item>
                         {({ active }) => (
                           <a
                             href='#/MyProfil'
@@ -132,16 +132,25 @@ export default function Navbar(props) {
                             Inställningar
                           </a>
                         )}
-                      </Menu.Item>
+                      </Menu.Item> */}
                       <Menu.Item>
-                        {({ active }) => (
+                      {({ active }) => (
+                            <a
+                              href='http://localhost:3000'
+                              className={classNames('block px-4 py-2 font-medium text-sm text-black no-underline ', active ? ' bg-cyan-600 ' : '')}
+                              onClick={() => { localStorage.clear();}
+                            }>
+                              Logga ut
+                            </a>
+                          )}
+                        {/* {({ active }) => (
                           <a
                             href='#/LogOut'
                             className={classNames(active ? 'bg-gray-300' : '', 'block px-4 py-2 text-sm text-black')}
                           >
                             Logga ut
                           </a>
-                        )}
+                        )} */}
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
@@ -158,9 +167,9 @@ export default function Navbar(props) {
                   key={item.name}
                   to={item.href}
                   className={({isActive}) => {
-                    return 'block px-3 py-2 rounded-md text-base font medium no-underline' +
+                    return 'block px-3 py-2 rounded-md text-base font medium no-underline ' +
                     (!isActive 
-                      ? 'text-cyan-700 hover:bg-cyan-700 hover:text-white' 
+                      ? ' text-white hover:bg-cyan-700 hover:text-white' 
                       : 'bg-cyan-700 text-white' )
                   }} 
                 >

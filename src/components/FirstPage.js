@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from './Footer';
 import '../index.css';
 import header from './F_img/frontPage-header.jpg';
 import firstImg from './F_img/Systembuilders1.jpg';
@@ -12,11 +11,10 @@ export default function FirstPage () {
 
     return(
         <div  className='backgroundColor'>
-            <img src={header} className='picHeader' />
+            <img src={header} className='picHeader' alt="Office representation" />
             <a href="http://localhost:3000/login"><button className="login-button">Login</button></a>
 
             <MainContent />
-            {/* <Footer/> */}
         </div>
     );
 };
@@ -30,7 +28,7 @@ function MainContent () {
           <section className="card-container">
 
             <div className="col">
-
+                
                     <div className="card">
                         <img src={firstImg} className="card-img-top" alt="Welding" />
                         <div className="card-body">
@@ -41,7 +39,7 @@ function MainContent () {
                             delivering projects that exceed expectations.</p>
                             <br/>
                         </div>
-                    </div>
+                        </div>
 
             </div>
 

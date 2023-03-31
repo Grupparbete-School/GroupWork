@@ -52,7 +52,11 @@ export default function FetchPeople2() {
     [people, items]);
     
   if (!isLoaded) {
-    return <div>Loading ...</div>;
+    return(
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <div className="spinner-border" role="status"></div></div>
+    )
+    // return <div>Loading ...</div>;
   }
   else {
     return (
