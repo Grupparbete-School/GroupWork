@@ -1,16 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
 import ProjectDTO from './ProjectDTO';
-import axios from 'axios';   
+import axios from 'axios';  
+import '../index.css'; 
+import swal from 'sweetalert';
 
 export default function TimeForm() {
     const [activeItems, setActiveItems] = useState([ProjectDTO("0")]);
     const [selectedItem, setSelectedItem] = useState(activeItems[0]);
     const [personId, setPersonId] = useState("");
-    const [date, setDate] = useState(null);
-    const [hours, setHours] = useState(null);
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [date, setDate] = useState();
+    const [hours, setHours] = useState();
 
-    const handleChange = (e) => {
+    const handleChange = (e) => { 
         setSelectedItem(e.target.value);
     }
 
@@ -23,9 +27,10 @@ export default function TimeForm() {
                 for (let index = 0; index < result.length; index++) {
                     newList.push(ProjectDTO(result[index].Status, result[index].ProjectName, result[index].Id))
                 }
+                setIsLoaded(true)
                 setActiveItems(newList.filter(item => item.status === "Active"));
-            } 
-        ); 
+            }, 
+        );
     }, []); 
 
     useEffect(() => {
@@ -37,8 +42,10 @@ export default function TimeForm() {
                     usr.Email.toLowerCase() === localStorage.getItem("userEmail")
                 );
                 setPersonId(ppl[0].PersonId);
-            }  
-        );  
+            },
+            (error) => {
+                setError(error);
+            });
     }, []); 
     
     const handleSubmit = (event) => {
@@ -55,58 +62,73 @@ export default function TimeForm() {
                     projectname = activeItems[index].projectName
                 }
             }
-            
-            alert(`Följande uppgifter har lagts till i projekt ${(projectname)}: 
 
-            Datum:  ${date} 
-            Antal timmar: ${hours}`);
+            if(swal({
+                className: "swal-popup",
+                title: "Följande uppgifter har lagts till i projekt: " + (projectname),
+                text: "Datum: " + (date) + " " + ", Antal timmar: " + (hours),
+                icon: "success",
+                button: "Okej",
+            }).then((value) => {
+                if(value ){
+                    window.location.reload();
+                }
+            }))
+            {};
+        }    
+
+        if (!isLoaded) {
+            return <div>Loading ...</div>;
         }
-
         return (
             <>
-            <form onSubmit={handleSubmit}>
-                <div className="relative max-w-sm">
-                    <label for="Projects">Projekt</label>
-                    <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" value={selectedItem} 
-                    onChange={handleChange}> 
-                    {activeItems.map((item, index) => 
-                    ( <option 
-                        key={index} 
-                        value={item.id}> 
-                        {item.projectName} 
-                    </option> ))} 
-                    </select>
-                </div>
+            <div className="form-container">
+                <div className="shadow">
+                    <form className="card-container" onSubmit={handleSubmit}> 
+                        <div className="col">
+                            <label for="Projects" className="form-heading">Projekt</label>
+                            <select className="bg-gray-50 border border-gray-300 text-black text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                            value={selectedItem} required
+                            onChange={handleChange}> 
+                            <option value="">Välj projekt</option>
+                            {activeItems.map((item, index) => 
+                            ( <option
+                                key={index} 
+                                value={item.id}> 
+                                {item.projectName} 
+                            </option> ))} 
+                            </select>
+                            
+                            <div className="relative max-w-sm">
+                                <label for="Date" className="form-heading">Datum </label>
+                                    <input className="bg-gray-50 border border-gray-300 text-black
+                                     text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        id="formInput"
+                                        type="date" required 
+                                        value={date} 
+                                        onChange={(e) => setDate(e.target.value)} 
+                                        placeholder="DateTime">
+                                    </input>
+                            </div>
 
-                <div className="relative max-w-sm">
-                    <label for="Date">Datum
-                        <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            type="date" 
-                            value={date} 
-                            onChange={(e) => setDate(e.target.value)} 
-                            id="InputForm2" placeholder="DateTime">
-                        </input>
-                    </label>
+                            <div className="relative max-w-sm">
+                                <label for="Hours" className="form-heading">Antal timmar</label>
+                                    <input className="bg-gray-50 border border-gray-300 text-black text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        type="number" required 
+                                        value={hours} 
+                                        onChange={(e) => setHours(e.target.value)} 
+                                        placeholder="00,00">
+                                    </input>
+                            </div>
+                            <br/><br/><br/> 
+                            <div className="form-button">
+                            <button type="submit">
+                                Lägg till</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-
-                <div className="relative max-w-sm">
-                    <label for="Hours">Antal timmar
-                        <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            type="number" 
-                            value={hours} 
-                            onChange={(e) => setHours(e.target.value)} 
-                            id="InputForm3" placeholder="00,00">
-                        </input>
-                    </label>
-                </div>
-
-                <div className="flex items-center justify-between">
-                <button
-                className="bg-cyan-500 hover:bg-cyan-700 text-grey-900 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
-                type="submit">
-                    Lägg till</button>
-                </div>
-            </form>
+            </div>
             </>
         )
 }

@@ -53,8 +53,9 @@ export default function Dashboard() {
 
   let NavbarOne = "";
   let MainContent = "";
-  
+
   if (userRole === 'user') {
+
     NavbarOne = <Navbar />
     MainContent = <ActiveProjects />
   }
@@ -79,4 +80,6 @@ export default function Dashboard() {
       </div>
     );
   }
+
 };
+
