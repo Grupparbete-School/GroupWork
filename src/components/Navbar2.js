@@ -11,8 +11,8 @@ const today = new Date();
 
 const navigation = [
   { name: 'Hem', href: '/dashbord' },
-  { name: 'Projekt', href: '/Project' },
-  { name: 'Rapporter', href: '/Report' },
+  { name: 'Projekt', href: '/projects' },
+  { name: 'Rapporter', href: '/TimeAdd' },
 ]
 
 function classNames(...classes) {
@@ -135,13 +135,13 @@ export default function Navbar2(props) {
                                 <ListGroup as="ol" >
                                   <ListGroup.Item
                                     as="li"
-                                    className="d-flex justify-content-between align-items-start" 
+                                    className="d-flex justify-content-between align-items-start list-color " 
                                   >
                                     <div className="ms-4 me-auto">
                                       <div className="fw-bold">{item.ProjectName}</div>
                                       {item.ProjectName} is {Math.abs(item.HoursLeft)} hours above the maximum set amount.
                                       <br/><br/>
-                                      <a href="http://localhost:3000/#"><button className="default-btn">Uppdatera tid</button></a>
+                                      <a href="http://localhost:3000/timeReport"><button className="default-btn">Uppdatera tid</button></a>
                                     </div>
                                     <Badge bg="danger" pill>
                                       {Math.abs(item.HoursLeft)} h

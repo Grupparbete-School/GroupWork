@@ -3,7 +3,7 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import Sthlm from '../components/F_img/sthlm.jpg';
 import London from '../components/F_img/London.jpg';
-import EiffelTower from '../components/F_img/EffielTower.jpg';
+import Duved from '../components/F_img/duved.jpg';
 import Oslo from '../components/F_img/Oslo.jpg';
 
 const FetchProject = () => {
@@ -12,7 +12,7 @@ const FetchProject = () => {
     loading,
     error,
   } = useFetchProjects();
-  const image = [Sthlm, EiffelTower, London, Oslo];
+  const image = [Duved, Sthlm, London, Oslo];
 
 return (
   <div>
@@ -28,26 +28,31 @@ return (
 
           <section >
 
-            <div className="col">
-                
-                    <div className="card">
-                        <img src={image[index]} className="card-img-top" alt="Pictures of building projects" />
-                        <div className="card-body">
-                            <h5>
-                              <div key={index}>
-                              <strong>{item.ProjectName}</strong>
-                              </div></h5>
-                            <p>
-                              Timmar kvar: {item.HoursLeft} <br/>
-                              Budgeterad tid: {item.MaxHours}<br/>
-                              Status: <strong>{item.Status}</strong>
-                              </p>
-                            <br/>
+              <div className="col">
 
-                        </div>
-                        </div>
+                <div className="card">
+                  <img src={image[index]} className="card-img-top" alt="Pictures of building projects" />
+                  <div className="card-body">
+                    <h5>
+                    <div key={index}>
+                        <strong>{item.ProjectName}</strong>
+                      </div></h5>
+                      Status: <strong>{item.Status}</strong> 
+                      <hr />
+                    <p>
+                      Budgeterad tid: {item.MaxHours} h<br />
+                      Arbetad tid: {item.UsedHours} h<br/>
+                      Tid kvar:{" "}
+                      <span style={{ color: item.HoursLeft < 0 ? "red" : "black" }}>
+                        {item.HoursLeft} h
+                      </span> 
+                    </p>
+                    <br />
 
-            </div>
+                  </div>
+                </div>
+
+              </div>
 
           </section>
           </div>
