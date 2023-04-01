@@ -1,31 +1,29 @@
 import {useState, useEffect, Fragment} from 'react'
 import axios from 'axios';
-import { Listbox, Transition } from '@headlessui/react'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import Swal from 'sweetalert2'
 
-
-export default function AddComment2(){
+export default function AddComment(){
 
     const [error, setError] = useState('');
     const[loading, setLoading] = useState(false);
     const [peoples, setPeoples] = useState([]);
     const[projects, setProjects] = useState([]);
     const [timeReports, setTimeReports] = useState([]);
+    const [options, setOptions] = useState([]);
+    const [checkedComments, setCheckedComments] = useState({});
 
+
+    const [submitComment, setSubmitComment] = useState(true);
+    const [submitCommentName, setSubmitCommentName] = useState(true);
     const [comment, setComment] = useState("");
     const [commentName, setCommentName] = useState("");
-    const [userData, setUserData] = useState([]);
-    const [timeReportsIds, setTimeReportsIds] = useState([]);
-    const [projectNames, setProjectNames] = useState([]);
+    const [selectedReport, setSelectedReport] = useState('');
 
     const peopleUrl = "http://localhost:5000/people";
     const projectUrl = "http://localhost:5000/projects";
     const timeReportsUrl = "http://localhost:5000/time";
 
-    const [loggedInUser, setLoggedInUser] = useState("erixon.malin@hotmail.com");
-    const [projIds, setProjIds] = useState([]);
-    //dropdown list
-    const [selectedTimeReport, setSelectedTimeReport] = useState("Select report")
+    const filteredPeople = peoples.filter((person) => person.Email === "ullzten@gmail.com");
       //fetch peopleDb
     useEffect(()=>{
         fetch(peopleUrl)
@@ -44,19 +42,20 @@ export default function AddComment2(){
 
 //fetch timeReportsDb
 useEffect(()=>{
-    fetch(timeReportsUrl)
-    .then(res => res.json())
-    .then(
-        (result)=>{
-            setLoading(true)
-            setTimeReports(result)
-        },
-        (error) =>{
-            setLoading(true)
-            setError(error)
-        }
-    );
+  fetch(timeReportsUrl)
+  .then(res => res.json())
+  .then(
+      (result)=>{
+          setLoading(true)
+          setTimeReports(result)
+      },
+      (error) =>{
+          setLoading(true)
+          setError(error)
+      }
+  );
 },[]);
+
       //fetch projectsDB
     useEffect(()=>{
         fetch(projectUrl)
@@ -73,75 +72,128 @@ useEffect(()=>{
         );
     },[]);
 
-   //filter peopleData to get logged in users info/relation time report ID that is the row in Time reprot DB
-  useEffect(() => {
-    if (peoples.length > 0) {
-  
-      const filteredPeoples = peoples
-      .filter((item) => item.Email === loggedInUser);
-      setUserData(filteredPeoples);
-      //map to only get time reports ids from logged in user and store in new array
-      const newTimeReportsIds = filteredPeoples.flatMap((item) => item.TimeReportsId.map((subItem) => subItem.id));
-      setTimeReportsIds(newTimeReportsIds);
-    }
-  }, [peoples, loggedInUser, timeReports]);
-
-  useEffect(()=>{
-    // const matchingProjectNames = projects
-    // .filter(project => project.TimeReportsId.some(report => timeReportsIds.includes(report.id)))
-    // .map(project => project.ProjectName)
-
-    // setProjectNames(matchingProjectNames);
-
-    const projectData = projects.map(project => ({
-      projectName: project.ProjectName,
-      timeReportID: project.TimeReportsId.map(tr => tr.id)
-    }));
-    
-    setProjectNames(projectData)
-  },[projects, timeReportsIds])
- 
-    console.log(projectNames)
-    // console.log(timeReportsIds)
-    //  {console.log(projectNames)}
-      
-    
 //to clear comments(not 100%)
   const onClear = () => {
     setComment("");
     setCommentName("");
-
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    if (!selectedReport) {
+      Swal.fire("Please select a time report.");
+      return;
+    }
+  
+    if (submitComment && submitCommentName && comment.trim() === "" && commentName.trim() === "") {
+      Swal.fire("Please enter comment heading and description.");
+      return;
+    }
+  
+    if (submitComment && comment.trim() === "") {
+      Swal.fire('Please enter comment heading.')
+      return;
+    }
+  
+    if (submitCommentName && commentName.trim() === "") {
+      Swal.fire('Please enter comment description.')
+      return;
+    }
 
-    //Clear comments after submit
-    setComment("");
-    setCommentName("");
-
-    
-    //Comment heading
-     axios
-        .patch("http://localhost:5000/PatchComment", {
-          Comment: comment,
-          pageId: selectedTimeReport,
-        })
-        .catch((error) => {
-          console.log(error);
-          setError('Error: ' + error.message);
+    try {
+      if (submitComment && submitCommentName) {
+        // Send both comment and commentName
+         axios.post("http://localhost:5000/AddComment", {
+          Comment: commentName,
+          pageId: selectedReport,
         });
-        //Description of comment
     
-    axios.post('http://localhost:5000/AddComment', {
-        Comment: commentName,
-        pageId: selectedTimeReport,
+         axios.patch("http://localhost:5000/PatchComment", {
+          Comment: comment,
+          pageId: selectedReport,
+        });
     
-    }).catch(error =>{
-        console.log(error);
-        setError('Error: ' + error.message);
+        await Swal.fire({
+          title: "Du har skrivit denna kommentar:",
+          text: comment,
+          text: commentName,
+          icon: "success",
+          position: "bottom-start",
+          allowOutsideClick: true,
+          allowEscapeKey: true,
+        });        
+    
+      } else if (submitComment) {
+        // Comment heading
+         axios.patch("http://localhost:5000/PatchComment", {
+          Comment: comment,
+          pageId: selectedReport,
+        });
+    
+        await Swal.fire({
+          title: "Du har skickat:",
+          text: comment,
+          icon: "success",
+          position: "bottom-start",
+          allowOutsideClick: true,
+          allowEscapeKey: true,
+        });
+    
+      } else if (submitCommentName) {
+        // Description of comment
+         axios.post("http://localhost:5000/AddComment", {
+          Comment: commentName,
+          pageId: selectedReport,
+        });
+    
+        await Swal.fire({
+          title: "Detaljerad beskrivning:",
+          text: commentName,
+          icon: "success",
+          position: "bottom-start",
+          allowOutsideClick: true,
+          allowEscapeKey: true,
+        });
+      }
+      setComment("");
+      setCommentName("");  
+    } catch (error) {
+      console.log(error);
+      setError("Error: " + error.message);
+    
+      Swal.fire({
+        title: "Error",
+        text: error.message,
+        icon: "error",
+        position: "bottom-start",
+        allowOutsideClick: true,
+        allowEscapeKey: true,
+      });
+    }    
+  };
+
+useEffect(() => {
+
+  const newOptions = [];
+  filteredPeople.forEach((person) => {
+    person.TimeReportsId.forEach((report) => {
+      const timeReport = timeReports.find((time) => time.PageId === report);
+      const project = projects.find((proj) => proj.PageId === timeReport?.Projectid);
+      if (!timeReport || !project) return null;
+      newOptions.push(
+        <option
+          key={report}
+          value={timeReport.PageId} // use timereport id as value
+          className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
+        >
+          {project.ProjectName} ({timeReport.StartDate})
+        </option>
+      );
     });
-};
+  });
+  setOptions(newOptions);
+}, [timeReports, projects, peoples]);
 
 if (error) {
     return <div>Error: {error.message}</div>;
@@ -150,123 +202,80 @@ if (error) {
   } else {
 
     return (
-      
-//I listan ska detta synas
-//Datum från timereport + project namn
 
-<main>
+<div style={{ display: 'flex', justifyContent: 'center',alignItems: 'center', height: '100vh' }}>
+<main className='bg-gray-50 rounded border border-2'>
 
-<div>
- {projectNames.forEach(element => {
-  console.log(element)
- })}
+<div className="top-16 m-2">
+  <select
+    className="w-full bg-white rounded-lg shadow-md py-2 px-3 text-gray-400 
+    leading-tight focus:outline-none focus:shadow-outline active-dropdown"
+    value={selectedReport}
+    onChange={(e) => setSelectedReport(e.target.value)}
+  >
+    <option className="py-2 text-gray-400">Select a time report</option>
+    {options}
+  </select>
 </div>
 
 
+<form
+      onSubmit={handleSubmit}
+      className="mt-4 flex flex-col justify-center items-center"
+    >
+      <h1 className="text-lg font-bold">Header</h1>
+      <input
+        className="bg-white border-2 border-gray-500 px-4 py-2 rounded"
+        type="text"
+        placeholder="comment heading..."
+        value={comment}
+        onChange={(e) => {
+          setComment(e.target.value);
+        }}
+      />
 
-<div className="top-16 w-72">
-      <Listbox value={selectedTimeReport} onChange={setSelectedTimeReport}>
-        <div className="relative mt-1">
-          <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-            <span className="block truncate">{selectedTimeReport}</span>
-            {/* log selected item in list */}
-            {console.log(selectedTimeReport + " Selected ID from List")}
-            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-              <ChevronUpDownIcon 
-                className="h-5 w-5 text-gray-400"
-                aria-hidden="true"
-              />
-            </span>
-          </Listbox.Button>
-          <Transition
-            as={Fragment}
-            leave="transition ease-in duration-100"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {timeReportsIds?.map((item, index) => (
-                
-      
-                <Listbox.Option
-                  key={index}
-                  className={({ active }) =>
-                    `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                      active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
-                    }`
-                  }
-                  //value that post/patch get to find right row in database
-                  value={item}
-                  
-                >
-                  {({ selectedTimeReport }) => (
-                    <>
-                      <span
-                        className={`block truncate ${
-                          selectedTimeReport ? 'font-medium' : 'font-normal'
-                        }`}
-                      >    
-                     {/* Displays in list data */}
-                    {item}
-                    
-                      </span>
-                      {selectedTimeReport ? (
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
-                          <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                        </span>
-                      ) : null}
-                    </>
-                  )}
-                </Listbox.Option>
-                 
-                //End inner map
-                      ))}
-                
-              {/* End of map */}
-            </Listbox.Options>
-          </Transition>
-        </div>
-      </Listbox>
-    </div>
-
-    <form onSubmit={handleSubmit} className="mt-4">
-          <h1>Name of comment</h1>
+      <div>
+        <label>
           <input
-            className="bg-gray-200"
-            type="text"
-            placeholder="comment heading..."
-            value={comment}
-            onChange={(e) => {
-              setComment(e.target.value);
-              // console.log(e.target.value)
-            }}
+            type="checkbox"
+            checked={submitComment}
+            onChange={(e) => setSubmitComment(e.target.checked)}
           />
-          <h1>Add Comment</h1>
-          <input
-            className="h-20 bg-gray-200 text-black"
-            type="text"
-            placeholder="comment description..."
-            value={commentName}
-            onChange={(d) => {
-              setCommentName(d.target.value);
-              // console.log(d.target.value)
-            }}
-          />
-          <div>
-            <button type="submit" className="bg-gray-200 rounded m-3 p-1">
-              Submit comment
-            </button>
-            <button
-              type="submit"
-              onClick={onClear}
-              className="bg-red-700 rounded mt-3 p-1"
-            >
-              Delete comment
-            </button>
-          </div>
-        </form>
+          Submit comment
+        </label>
+      </div>
 
+      <h1 className="text-lg font-bold mt-4">Comment description</h1>
+      <textarea
+        className="w-72 h-40 m-2 box-borders border-2 border-gray-500 bg-white text-black px-4 py-2 resize-none rounded"
+        placeholder="comment description..."
+        value={commentName}
+        onChange={(d) => {
+          setCommentName(d.target.value);
+        }}
+      ></textarea>
+
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={submitCommentName}
+            onChange={(e) => setSubmitCommentName(e.target.checked)}
+          />
+          Submit comment description
+        </label>
+      </div>
+  <button
+  type="submit"
+  className="my-2 ont-roboto font-normal text-white text-sm bg-orange-500 py-2 px-6 rounded-full shadow-lg transition-all duration-1000 transform translate-y-0 hover:py-2 hover:px-10 hover:translate-y-0 hover:bg-orange-600 hover:text-black hover:border-none focus:outline-none"
+  // onClick={handleButtonClick}
+>
+  Submit comment
+</button>
+  
+</form>
     </main>
+    </div>
         )
     };
   };
