@@ -56,7 +56,6 @@ export default function FetchPeople2() {
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <div className="spinner-border" role="status"></div></div>
     )
-    // return <div>Loading ...</div>;
   }
   else {
     return (

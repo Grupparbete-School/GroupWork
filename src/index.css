@@ -75,6 +75,14 @@ code {
   align-items: center;
 }
 
+/* FirstPage.js cards */
+.card-containerFP{
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 
 /* BUTTONS */
 
@@ -179,6 +187,25 @@ code {
     width: 300px;
   }
 }
+@media screen and (max-width: 1080px) {
+  .footer-container {
+    background-color: #164e63bd;
+    color: white;
+    display: flex; 
+
+
+    text-align: center;
+
+    }
+  
+    .rightFooter{
+
+    }
+  
+    .leftFooter{
+
+    }
+}
 
 
 /* FOOTER */
@@ -195,6 +222,41 @@ footer {
   width: 100%;
   }
 
+  .footer-container {
+    background-color: #164e63bd;
+    color: white;
+    margin-top: auto; 
+    height: 50px; 
+    display: flex; 
+    justify-content: space-between;
+    text-align: left;
+    padding-top: 15px; 
+    width: 100%;
+    }
+
+  .contact-socialMedia{
+    background-color:#fafcf9;
+    border-radius: 25px;
+  }
+
+  .rightFooter{
+    margin-right: 10%;
+  }
+
+  .leftFooter{
+    margin-left: 10%;
+    text-decoration: none;
+  }
+  .leftFooter a{
+    text-decoration: none;
+    color: white;
+  }
+  .leftFooter a:hover{
+    text-decoration: none;
+    color: white;
+    background-color: #164e6348;
+    border-radius: 25px;
+  }
 
 
 

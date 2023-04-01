@@ -140,9 +140,11 @@ export default function Navbar2(props) {
                                     <div className="ms-4 me-auto">
                                       <div className="fw-bold">{item.ProjectName}</div>
                                       {item.ProjectName} is {Math.abs(item.HoursLeft)} hours above the maximum set amount.
+                                      <br/><br/>
+                                      <a href="http://localhost:3000/#"><button className="default-btn">Uppdatera tid</button></a>
                                     </div>
                                     <Badge bg="danger" pill>
-                                      {item.HoursLeft}
+                                      {Math.abs(item.HoursLeft)} h
                                     </Badge>
                                   </ListGroup.Item>
                                 </ListGroup>

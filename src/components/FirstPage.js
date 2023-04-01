@@ -6,6 +6,7 @@ import secondImg from './F_img/Systembuilders2.jpg';
 import thirdImg from './F_img/Systembuilders3.jpg';
 import forthImg from './F_img/Systembuilders4.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { SocialIcon } from 'react-social-icons';
 
 export default function FirstPage () {
 
@@ -15,6 +16,7 @@ export default function FirstPage () {
             <a href="http://localhost:3000/login"><button className="login-button">Login</button></a>
 
             <MainContent />
+            <FooterText/>
         </div>
     );
 };
@@ -25,7 +27,7 @@ function MainContent () {
     return(
         <div>
 
-          <section className="card-container">
+          <section className="card-containerFP">
 
             <div className="col">
                 
@@ -93,5 +95,29 @@ function MainContent () {
 
         </section>
       </div>
+    );
+};
+
+const FooterText = () => {
+    return (
+        <div className='footer-container'>
+
+            <p className='leftFooter'>
+                <strong>Email: </strong>
+                <br />
+                <a href='mailto:Systembuilders@Email.com' target='_blank'>Systembuilders@Email.com</a>
+            </p>
+            <p className='rightFooter'>
+                <strong>Social media: </strong>
+                <br />
+                <div className='contact-socialMedia'>
+                    <SocialIcon url="https://twitter.com/" target='_blank' />
+                    <SocialIcon url="https://instagram.com/" target='_blank' />
+                    <SocialIcon url="https://linkedin.com/" target='_blank' />
+                    <SocialIcon url="https://facebook.com/" target='_blank' />
+                    <SocialIcon url="https://youtube.com/" target='_blank' />
+                </div>
+            </p>
+        </div>
     );
 };
