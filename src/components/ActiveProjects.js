@@ -27,7 +27,7 @@ export default function FetchPeople2() {
     .then(res => res.json())
     .then((result) => {
       // setIsLoaded(true); 
-      const active = result.filter(item => item.Status === "Active")
+      const active = result.filter(item => item.Status === "Aktivt")
       setItems(active);
       console.log(active)
     },

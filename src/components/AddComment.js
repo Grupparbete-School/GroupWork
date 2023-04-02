@@ -168,7 +168,7 @@ useEffect(()=>{
         title: "Error",
         text: error.message,
         icon: "error",
-        position: "bottom-start",
+        position: "center",
         allowOutsideClick: true,
         allowEscapeKey: true,
       });
@@ -187,7 +187,7 @@ useEffect(() => {
         <option
           key={report}
           value={timeReport.PageId} // use timereport id as value
-          className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
+          className="absolute inset-y-0 left-0 flex items-center pl-3 text-black"
         >
           {project.ProjectName} ({timeReport.StartDate})
         </option>
@@ -206,86 +206,87 @@ if (error) {
     );
   } else {
 
-    return (
-      <div>
-      <div className="page-prompt" role="alert">
-        Information om projektet
-      </div>
+        return (
+          <div>
+            <div className="page-prompt" role="alert">
+              <h3>Lägga till tid</h3>
+              <h6>Med den här funktionen kan användaren lägg till arbetad tid i det aktuella projektet.</h6>
+            </div>
 
-<div style={{ display: 'flex', justifyContent: 'center',alignItems: 'center', height: '100vh' }}>
-<main className='bg-gray-50 rounded border border-2'>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+              <main className='bg-gray-50 rounded border border-2'>
 
-<div className="top-16 m-2">
-  <select
-    className="w-full bg-white rounded-lg shadow-md py-2 px-3 text-gray-400 
-    leading-tight focus:outline-none focus:shadow-outline active-dropdown"
-    value={selectedReport}
-    onChange={(e) => setSelectedReport(e.target.value)}
-  >
-    <option className="py-2 text-gray-400">Select a time report</option>
-    {options}
-  </select>
-</div>
+                <div className="top-16 m-2">
+                  <select
+                    className="w-full bg-white rounded-lg shadow-md py-2 px-3 text-black 
+                      leading-tight focus:outline-none focus:shadow-outline active-dropdown"
+                    value={selectedReport}
+                    onChange={(e) => setSelectedReport(e.target.value)}
+                  >
+                    <option className="py-2 text-gray-400">Välj tidsrapportreport</option>
+                    {options}
+                  </select>
+                </div>
 
 
-<form
-      onSubmit={handleSubmit}
-      className="mt-4 flex flex-col justify-center items-center"
-    >
-      <h1 className="text-lg font-bold">Header</h1>
-      <input
-        className="bg-white border-2 border-gray-500 px-4 py-2 rounded"
-        type="text"
-        placeholder="comment heading..."
-        value={comment}
-        onChange={(e) => {
-          setComment(e.target.value);
-        }}
-      />
+                <form
+                  onSubmit={handleSubmit}
+                  className="mt-4 flex flex-col justify-center items-center"
+                >
+                  <h1 className="text-lg font-bold">Header</h1>
+                  <input
+                    className="bg-white border-2 border-gray-500 px-4 py-2 rounded"
+                    type="text"
+                    placeholder="comment heading..."
+                    value={comment}
+                    onChange={(e) => {
+                      setComment(e.target.value);
+                    }}
+                  />
 
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={submitComment}
-            onChange={(e) => setSubmitComment(e.target.checked)}
-          />
-          Submit comment
-        </label>
-      </div>
+                  <div>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={submitComment}
+                        onChange={(e) => setSubmitComment(e.target.checked)}
+                      />
+                      Submit comment
+                    </label>
+                  </div>
 
-      <h1 className="text-lg font-bold mt-4">Comment description</h1>
-      <textarea
-        className="w-72 h-40 m-2 box-borders border-2 border-gray-500 bg-white text-black px-4 py-2 resize-none rounded"
-        placeholder="comment description..."
-        value={commentName}
-        onChange={(d) => {
-          setCommentName(d.target.value);
-        }}
-      ></textarea>
+                  <h1 className="text-lg font-bold mt-4">Comment description</h1>
+                  <textarea
+                    className="w-72 h-40 m-2 box-borders border-2 border-gray-500 bg-white text-black px-4 py-2 resize-none rounded"
+                    placeholder="comment description..."
+                    value={commentName}
+                    onChange={(d) => {
+                      setCommentName(d.target.value);
+                    }}
+                  ></textarea>
 
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={submitCommentName}
-            onChange={(e) => setSubmitCommentName(e.target.checked)}
-          />
-          Submit comment description
-        </label>
-      </div>
-  <button
-  className="default-btn"
-  type="submit"
-  // onClick={handleButtonClick}
->
-  Submit comment
-</button>
-  
-</form>
-    </main>
-    </div>
-    </div>
+                  <div>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={submitCommentName}
+                        onChange={(e) => setSubmitCommentName(e.target.checked)}
+                      />
+                      Submit comment description
+                    </label>
+                  </div>
+                  <button
+                    className="my-2 ont-roboto font-normal text-white text-sm bg-cyan-900 py-2 px-6 rounded-full shadow-lg transition-all duration-1000 transform translate-y-0 hover:py-2 hover:px-10 hover:translate-y-0 hover:bg-cyan-700 hover:text-black hover:border-none focus:outline-none"
+                    type="submit"
+                  // onClick={handleButtonClick}
+                  >
+                    Submit comment
+                  </button>
+
+                </form>
+              </main>
+            </div>
+          </div>
         )
     };
   };
