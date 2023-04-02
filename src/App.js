@@ -4,9 +4,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FirstPage from './components/FirstPage'
 import Dashbord from "./components/Dashbord";
 import Login from './components/Login';
-import FirstPage from './components/FirstPage';
 import Project from './pages/Project';
-import TimeAdd from './components/TimeAdd';
+import ChangeTime from './components/ChangeTime';
 
 export default function App() {
   return (
@@ -17,6 +16,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashbord" element={<Dashbord />} />
           <Route path="/projects" element={<Project />} />
+          <Route path="/changeTime" element={<ChangeTime />} />
         </Routes>
       </BrowserRouter>
       <Footer/>

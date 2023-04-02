@@ -23,9 +23,6 @@ return (
     <div className="card-container">
       {data.map && data.map((item, index) => (
 
-          <div>
-          <div>
-
           <section >
 
               <div className="col">
@@ -54,9 +51,7 @@ return (
 
               </div>
 
-          </section>
-          </div>
-          </div>    
+          </section> 
       ))}
     </div>
   )}
