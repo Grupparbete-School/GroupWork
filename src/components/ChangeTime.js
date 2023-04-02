@@ -76,6 +76,11 @@ export default function ChangeTime() {
     );
   } else {
     return (
+      <div>
+        <div className="page-prompt" role="alert">
+        <h3>Uppdatera tid</h3>
+        <h6>Här kan man ändra tiden för ett projekt genom att klicka på "Ändra timmar"</h6>
+        </div>
       <div className="card-container">
               {projects.map((item, index) => {
                   return (
@@ -100,7 +105,7 @@ export default function ChangeTime() {
                                   Budgeterad tid: {item.MaxHours} h<br />
                                   Arbetad tid: {item.UsedHours} h<br />
                                   Tid kvar:{" "}
-                                  <span style={{ color: item.HoursLeft < 0 ? "red" : "black" }}>
+                                  <span style={{ color: item.HoursLeft < 0 ? "red" : "green" }}>
                                     {item.HoursLeft} h
                                   </span>
                                   <br />
@@ -146,6 +151,7 @@ export default function ChangeTime() {
                         </section>
                   );
               })}
+      </div>
       </div>
   );
 }

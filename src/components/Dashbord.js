@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import Navbar2 from './Navbar2';
 import { useEffect, useState } from 'react';
 import ActiveProjects from './ActiveProjects';
-import ProjectsData from '../components/FetchProjects';
+import AllProjects from '../components/AllProjects';
 
 export default function Dashboard() {
   //Skapar useState för datan vi ska spara.
@@ -61,7 +61,7 @@ export default function Dashboard() {
   }
   else {
     NavbarOne = <Navbar2 />
-    MainContent = <ProjectsData />
+    MainContent = <AllProjects />
   }
 
   let check = localStorage.getItem("userEmail");
