@@ -106,6 +106,12 @@ code {
   padding: 15px;
 }
 
+.page-prompt{
+  background-color: #658b6fa9;
+  color: white;
+  padding: 3% 3%;
+  text-align: center;
+  }
 
 /* BUTTONS */
 
@@ -254,10 +260,13 @@ code {
 
   .swal-popup{
     background-color: #fcfbfb;
-    padding: 17px;
+    justify-content: center;
+    /* align-items: center; */
+    /* padding: 17px; */
     border: 1px solid #F0E1A1;
     display: block;
-    margin: 22px;
+    margin-left: 50%;
+    margin-top: 50%;
     text-align: center;
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
   }
