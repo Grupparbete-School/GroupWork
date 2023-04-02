@@ -4,7 +4,7 @@ import London from '../components/F_img/London.jpg';
 import Duved from '../components/F_img/duved.jpg';
 import Oslo from '../components/F_img/Oslo.jpg';
 
-const FetchProjects = () => {
+const AllProjects = () => {
   const {
     data,
     loading,
@@ -16,7 +16,7 @@ const FetchProjects = () => {
     <div>
       <div className="page-prompt" role="alert">
       <h3>Alla projekt</h3>
-        <h6>Här kan man se alla projekt som finns i företaget med lite mer information.</h6>
+        <h6>Här kan man se alla projekt som finns i företaget.</h6>
       </div>
       {error && <div>error.message</div>}
       {loading && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -39,9 +39,6 @@ const FetchProjects = () => {
                           <div key={index}>
                             <strong>{item.ProjectName}</strong>
                           </div></h5>
-                        <h6>
-                          {item.StartDate} -- {item.EndDate} <br />
-                        </h6>
                         Status: <strong>{item.Status}</strong>
                         <hr />
                         <p>
@@ -51,14 +48,7 @@ const FetchProjects = () => {
                           <span style={{ color: item.HoursLeft < 0 ? "red" : "green" }}>
                             {item.HoursLeft} h
                           </span>
-                          <br />
-                          <hr />
-                          Beskrivning: <br /> {item.Description} <br />
-                        </p>
-                        <br />
-                        <hr/>
-
-                        
+                        </p>                    
                       </div>
                     </div>
 
@@ -74,7 +64,7 @@ const FetchProjects = () => {
     </div>
   )
 }
-export default FetchProjects;
+export default AllProjects;
 
 
 

@@ -27,7 +27,7 @@ export default function FetchPeople2() {
     .then(res => res.json())
     .then((result) => {
       // setIsLoaded(true); 
-      const active = result.filter(item => item.Status === "Active")
+      const active = result.filter(item => item.Status === "Aktivt")
       setItems(active);
       console.log(active)
     },
@@ -60,7 +60,7 @@ export default function FetchPeople2() {
   else {
     return (
       <div>
-        <div className="alert alert-primary" role="alert" style={{ textAlign: 'center' }}>
+        <div className="page-prompt" role="alert">
           {people[0]?.Name} aktiva projekt:
         </div>
         <div className="d-flex flex-wrap" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '1rem' }}>
