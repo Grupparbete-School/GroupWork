@@ -166,7 +166,7 @@ useEffect(()=>{
         title: "Error",
         text: error.message,
         icon: "error",
-        position: "bottom-start",
+        position: "center",
         allowOutsideClick: true,
         allowEscapeKey: true,
       });
@@ -185,7 +185,7 @@ useEffect(() => {
         <option
           key={report}
           value={timeReport.PageId} // use timereport id as value
-          className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
+          className="absolute inset-y-0 left-0 flex items-center pl-3 text-black"
         >
           {project.ProjectName} ({timeReport.StartDate})
         </option>
@@ -198,7 +198,8 @@ useEffect(() => {
 if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!loading) {
-    return <div>Loading...</div>;
+    return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+           <div className="spinner-border" role="status"></div></div>;
   } else {
 
     return (
@@ -208,12 +209,12 @@ if (error) {
 
 <div className="top-16 m-2">
   <select
-    className="w-full bg-white rounded-lg shadow-md py-2 px-3 text-gray-400 
+    className="w-full bg-white rounded-lg shadow-md py-2 px-3 text-black
     leading-tight focus:outline-none focus:shadow-outline active-dropdown"
     value={selectedReport}
     onChange={(e) => setSelectedReport(e.target.value)}
   >
-    <option className="py-2 text-gray-400">Select a time report</option>
+    <option className="py-2 text-gray-400">Välj projekt</option>
     {options}
   </select>
 </div>
@@ -223,11 +224,11 @@ if (error) {
       onSubmit={handleSubmit}
       className="mt-4 flex flex-col justify-center items-center"
     >
-      <h1 className="text-lg font-bold">Header</h1>
+      <h1 className="text-lg font-bold">Rubrik</h1>
       <input
         className="bg-white border-2 border-gray-500 px-4 py-2 rounded"
         type="text"
-        placeholder="comment heading..."
+        placeholder="skriv rubrik här..."
         value={comment}
         onChange={(e) => {
           setComment(e.target.value);
@@ -241,14 +242,14 @@ if (error) {
             checked={submitComment}
             onChange={(e) => setSubmitComment(e.target.checked)}
           />
-          Submit comment
+          Lägg till rubrik
         </label>
       </div>
 
-      <h1 className="text-lg font-bold mt-4">Comment description</h1>
+      <h1 className="text-lg font-bold mt-4">Kommentar</h1>
       <textarea
         className="w-72 h-40 m-2 box-borders border-2 border-gray-500 bg-white text-black px-4 py-2 resize-none rounded"
-        placeholder="comment description..."
+        placeholder="skriv kommentar här..."
         value={commentName}
         onChange={(d) => {
           setCommentName(d.target.value);
@@ -262,15 +263,15 @@ if (error) {
             checked={submitCommentName}
             onChange={(e) => setSubmitCommentName(e.target.checked)}
           />
-          Submit comment description
+          Lägg till kommentar
         </label>
       </div>
   <button
   type="submit"
-  className="my-2 ont-roboto font-normal text-white text-sm bg-orange-500 py-2 px-6 rounded-full shadow-lg transition-all duration-1000 transform translate-y-0 hover:py-2 hover:px-10 hover:translate-y-0 hover:bg-orange-600 hover:text-black hover:border-none focus:outline-none"
+  className="my-2 ont-roboto font-normal text-white text-sm bg-cyan-900 py-2 px-6 rounded-full shadow-lg transition-all duration-1000 transform translate-y-0 hover:py-2 hover:px-10 hover:translate-y-0 hover:bg-cyan-700 hover:text-black hover:border-none focus:outline-none"
   // onClick={handleButtonClick}
 >
-  Submit comment
+  Spara kommentar
 </button>
   
 </form>

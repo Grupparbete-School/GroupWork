@@ -28,7 +28,7 @@ export default function TimeForm() {
                     newList.push(ProjectDTO(result[index].Status, result[index].ProjectName, result[index].Id))
                 }
                 setIsLoaded(true)
-                setActiveItems(newList.filter(item => item.status === "Active"));
+                setActiveItems(newList.filter(item => item.status === "Aktivt"));
             }, 
         );
     }, []); 
@@ -62,9 +62,10 @@ export default function TimeForm() {
                     projectname = activeItems[index].projectName
                 }
             }
-
+            
             if(swal({
                 className: "swal-popup",
+                position: "center",
                 title: "Följande uppgifter har lagts till i projekt: " + (projectname),
                 text: "Datum: " + (date) + " " + ", Antal timmar: " + (hours),
                 icon: "success",
@@ -78,58 +79,78 @@ export default function TimeForm() {
         }    
 
         if (!isLoaded) {
-            return <div>Loading ...</div>;
+            return (
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                <div className="spinner-border" role="status"></div></div>
+            )
         }
         return (
-            <>
-            <div className="form-container">
-                <div className="shadow">
-                    <form className="card-container" onSubmit={handleSubmit}> 
-                        <div className="col">
-                            <label for="Projects" className="form-heading">Projekt</label>
-                            <select className="bg-gray-50 border border-gray-300 text-black text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                            value={selectedItem} required
-                            onChange={handleChange}> 
-                            <option value="">Välj projekt</option>
-                            {activeItems.map((item, index) => 
-                            ( <option
-                                key={index} 
-                                value={item.id}> 
-                                {item.projectName} 
-                            </option> ))} 
-                            </select>
-                            
-                            <div className="relative max-w-sm">
-                                <label for="Date" className="form-heading">Datum </label>
-                                    <input className="bg-gray-50 border border-gray-300 text-black
-                                     text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        id="formInput"
-                                        type="date" required 
-                                        value={date} 
-                                        onChange={(e) => setDate(e.target.value)} 
-                                        placeholder="DateTime">
-                                    </input>
-                            </div>
-
-                            <div className="relative max-w-sm">
-                                <label for="Hours" className="form-heading">Antal timmar</label>
-                                    <input className="bg-gray-50 border border-gray-300 text-black text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        type="number" required 
-                                        value={hours} 
-                                        onChange={(e) => setHours(e.target.value)} 
-                                        placeholder="00,00">
-                                    </input>
-                            </div>
-                            <br/><br/><br/> 
-                            <div className="form-button">
-                            <button type="submit">
-                                Lägg till</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+          <>
+            <div className="page-prompt" role="alert">
+              <h3>Lägga till tid</h3>
+              <h6>Med den här funktionen kan användaren lägg till arbetad tid i det aktuella projektet.</h6>
             </div>
-            </>
-        )
+            <div className="form-container">
+              <div className="shadow">
+                <form className="card-container" onSubmit={handleSubmit}>
+                  <div className="col">
+                    <label for="Projects" className="form-heading">
+                      Projekt
+                    </label>
+                    <select
+                      className="bg-gray-50 border border-gray-300 text-black text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      value={selectedItem}
+                      required
+                      onChange={handleChange}
+                    >
+                      <option value="">Välj projekt</option>
+                      {activeItems.map((item, index) => (
+                        <option key={index} value={item.id}>
+                          {item.projectName}
+                        </option>
+                      ))}
+                    </select>
+
+                    <div className="relative max-w-sm">
+                      <label for="Date" className="form-heading">
+                        Datum{" "}
+                      </label>
+                      <input
+                        className="bg-gray-50 border border-gray-300 text-black
+                                     text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        id="formInput"
+                        type="date"
+                        required
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        placeholder="DateTime"
+                      ></input>
+                    </div>
+
+                    <div className="relative max-w-sm">
+                      <label for="Hours" className="form-heading">
+                        Antal timmar
+                      </label>
+                      <input
+                        className="bg-gray-50 border border-gray-300 text-black text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        type="number"
+                        required
+                        value={hours}
+                        onChange={(e) => setHours(e.target.value)}
+                        placeholder="00,00"
+                      ></input>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div className="form-button">
+                      <button type="submit">Lägg till</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </>
+        );
 }
 
