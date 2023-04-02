@@ -1,6 +1,8 @@
 import {useState, useEffect, Fragment} from 'react'
 import axios from 'axios';
 import Swal from 'sweetalert2'
+import '../index.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function AddComment(){
 
@@ -198,14 +200,22 @@ useEffect(() => {
 if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!loading) {
-    return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-           <div className="spinner-border" role="status"></div></div>;
-  } else {
 
     return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <div className="spinner-border" role="status"></div></div>
+    );
+  } else {
 
-<div style={{ display: 'flex', justifyContent: 'center',alignItems: 'center', height: '100vh' }}>
-<main className='bg-gray-50 rounded border border-2'>
+        return (
+          <div>
+            <div className="page-prompt" role="alert">
+              <h3>Lägga till tid</h3>
+              <h6>Med den här funktionen kan användaren lägg till arbetad tid i det aktuella projektet.</h6>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+              <main className='bg-gray-50 rounded border border-2'>
 
 <div className="top-16 m-2">
   <select

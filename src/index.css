@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -24,6 +26,13 @@ code {
 
 .backgroundColor {
   background-color: #0e74902f;
+}
+
+.page-prompt{
+  background-color: #658b6fa9;
+  color: white;
+  padding: 3% 3%;
+  text-align: center;
 }
 
 /* LOGIN */
@@ -151,14 +160,14 @@ code {
   cursor: pointer;
 }
 
-.default-btn:hover{
+/* .default-btn:hover{
   transition : 835ms;
   padding: 10px 44px;
   transform : translateY(-0px);
   background: linear-gradient(90deg, #0e7490 20%, #164e63 70%);
   color: #f1f4f7;
   border: solid 1px #28363D;
-}
+} */
 
 .list-container{
   display: flex;
@@ -169,14 +178,16 @@ code {
   position: absolute;
   right: 0;
   z-index: 10;
+
 }
 
 .list-hours{
   margin-bottom: 10px;
 }
 
-.list-color{
-  background-color: #0e7490;
+.list-container li{
+  background-color: #042b35f1;
+  color: white;
 }
 
 /* SMALLER SCREEN SPEC */
@@ -197,7 +208,7 @@ code {
   .list-container{
     top: 0;
     margin-top: 60px;
-    margin-right: 70px;
+    margin-right: 38px;
     position: absolute;
     right: 0;
     z-index: 10;  
@@ -205,7 +216,7 @@ code {
 
 
   .list-hours{
-    width: 300px;
+    width: 248px;
   }
 }
 @media screen and (max-width: 1080px) {
@@ -219,13 +230,6 @@ code {
 
     }
   
-    .rightFooter{
-
-    }
-  
-    .leftFooter{
-
-    }
 }
 
   .form-button {
@@ -267,6 +271,15 @@ code {
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
   }
 
+  /* EXTRA */
+
+.inputChangeTime{
+  background-color:#164e6311;
+}
+
+.inputChangeTime::placeholder{
+  color: black;
+}
 
 /* FOOTER */
 footer {
@@ -280,7 +293,7 @@ footer {
   align-items: center;
   padding-top: 15px; 
   width: 100%;
-  }
+}
 
   .footer-container {
     background-color: #164e63bd;
@@ -292,7 +305,7 @@ footer {
     text-align: left;
     padding-top: 15px; 
     width: 100%;
-    }
+  }
 
   .contact-socialMedia{
     background-color:#fafcf9;
@@ -326,9 +339,6 @@ footer {
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
   }
 
-
-
-
 /* COLOR SCHEME */
 .color1{
   color: #DEE1DD;
@@ -351,6 +361,42 @@ footer {
 .color7{
   color: #28363D;
 }
+
+.clockInButton{
+
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  color: #fff;
+  background-color: #2f575d;
+  padding: 10px 30px;
+  border: none;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition : 564ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  }
+  
+  .clockInButton:hover{
+  
+  transition : 564ms;
+  padding: 10px 50px;
+  transform : translateY(-0px);
+  background-color: #fff;
+  color: #2f575d;
+  border: solid 2px #2a9d8f;
+  }
+
+  .clockImg{
+    width:24px; 
+    margin-left:3px; 
+    margin-right:3px; 
+    flex-direction: row;
+  }
 
 @tailwind base;
 @tailwind components;

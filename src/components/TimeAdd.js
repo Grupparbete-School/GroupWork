@@ -81,10 +81,10 @@ export default function TimeForm() {
             return (
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
                 <div className="spinner-border" role="status"></div></div>
-            )
+            );
         }
         return (
-          <>
+            <>
             <div className="page-prompt" role="alert">
               <h3>Lägga till tid</h3>
               <h6>Med den här funktionen kan användaren lägg till arbetad tid i det aktuella projektet.</h6>

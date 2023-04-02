@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from '../components/Navbar'; import Navbar2 from '../components/Navbar2';
-import ActiveProjects from "../components/ActiveProjects";
-import FetchProjects from '../components/FetchProjects';
+// import ChangeStatus from "../components/ChangeStatus";
+import AddComment from '../components/AddComment';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
-export default function PageChangeTime() {
+export default function Comment_ChangeStatus() {
 
   let NavbarOne = ""; 
   let MainContent = ""; 
@@ -15,10 +15,10 @@ export default function PageChangeTime() {
 
   if (userRole === 'user') { 
     NavbarOne = <Navbar /> 
-    MainContent = <ActiveProjects />; 
+    MainContent = <AddComment />; 
   } else { 
     NavbarOne = <Navbar2 /> 
-    MainContent = <FetchProjects /> 
+    MainContent = "";
   } 
   
   return (
@@ -30,4 +30,5 @@ export default function PageChangeTime() {
     </div>
   );
 }
+
 
