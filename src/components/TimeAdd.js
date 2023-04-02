@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ProjectDTO from './ProjectDTO';
 import axios from 'axios';  
 import '../index.css'; 
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 export default function TimeForm() {
     const [activeItems, setActiveItems] = useState([ProjectDTO("0")]);
@@ -63,9 +63,8 @@ export default function TimeForm() {
                 }
             }
             
-            if(swal({
+            if(Swal.fire({
                 className: "swal-popup",
-                position: "center",
                 title: "Följande uppgifter har lagts till i projekt: " + (projectname),
                 text: "Datum: " + (date) + " " + ", Antal timmar: " + (hours),
                 icon: "success",
