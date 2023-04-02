@@ -26,6 +26,13 @@ code {
   background-color: #0e74902f;
 }
 
+.page-prompt{
+  background-color: #658b6fa9;
+  color: white;
+  padding: 3% 3%;
+  text-align: center;
+}
+
 /* LOGIN */
 
 .loginBackground{

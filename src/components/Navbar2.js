@@ -12,7 +12,7 @@ const today = new Date();
 const navigation = [
   { name: 'Hem', href: '/dashbord' },
   { name: 'Projekt', href: '/project' },
-  { name: 'Uppdatera tid', href: '/changeTime' },
+  { name: 'Uppdatera tid', href: '/report' },
   { name: 'Ändra status', href: '/comment_ChangeStatus' },
 ]
 
@@ -142,7 +142,7 @@ export default function Navbar2(props) {
                                       <div className="fw-bold">{item.ProjectName}</div>
                                       {item.ProjectName} is {Math.abs(item.HoursLeft)} hours above the maximum set amount.
                                       <br/><br/>
-                                      <a href="http://localhost:3000/changeTime"><button className="default-btn">Uppdatera tid</button></a>
+                                      <a href="http://localhost:3000/report"><button className="default-btn">Uppdatera tid</button></a>
                                     </div>
                                     <Badge bg="danger" pill>
                                       {Math.abs(item.HoursLeft)} h

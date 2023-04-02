@@ -1,6 +1,8 @@
 import {useState, useEffect, Fragment} from 'react'
 import axios from 'axios';
 import Swal from 'sweetalert2'
+import '../index.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function AddComment(){
 
@@ -198,10 +200,17 @@ useEffect(() => {
 if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!loading) {
-    return <div>Loading...</div>;
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <div className="spinner-border" role="status"></div></div>
+    );
   } else {
 
     return (
+      <div>
+      <div className="page-prompt" role="alert">
+        Information om projektet
+      </div>
 
 <div style={{ display: 'flex', justifyContent: 'center',alignItems: 'center', height: '100vh' }}>
 <main className='bg-gray-50 rounded border border-2'>
@@ -266,8 +275,8 @@ if (error) {
         </label>
       </div>
   <button
+  className="default-btn"
   type="submit"
-  className="my-2 ont-roboto font-normal text-white text-sm bg-orange-500 py-2 px-6 rounded-full shadow-lg transition-all duration-1000 transform translate-y-0 hover:py-2 hover:px-10 hover:translate-y-0 hover:bg-orange-600 hover:text-black hover:border-none focus:outline-none"
   // onClick={handleButtonClick}
 >
   Submit comment
@@ -275,6 +284,7 @@ if (error) {
   
 </form>
     </main>
+    </div>
     </div>
         )
     };

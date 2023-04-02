@@ -23,6 +23,7 @@ export default function Report() {
   
   return (
     <div className='backgroundColor'> 
+    
       {NavbarOne}
       <div className='container-MainContent'>
       {MainContent}
