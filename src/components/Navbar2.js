@@ -11,8 +11,9 @@ const today = new Date();
 
 const navigation = [
   { name: 'Hem', href: '/dashbord' },
-  { name: 'Projekt', href: '/projects' },
+  { name: 'Projekt', href: '/project' },
   { name: 'Uppdatera tid', href: '/changeTime' },
+  { name: 'Ändra status', href: '/comment_ChangeStatus' },
 ]
 
 function classNames(...classes) {

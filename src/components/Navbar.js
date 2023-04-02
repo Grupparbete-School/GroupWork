@@ -6,9 +6,10 @@ import { NavLink } from 'react-router-dom'
 const today = new Date();
 
 const navigation = [
-  { name: 'Hem', href: '/Home' },
-  { name: 'Mina projekt', href: '/Project' },
-  { name: 'Mina uppgifter', href: '/Information' },
+  { name: 'Hem', href: '/dashbord' },
+  { name: 'Mina projekt', href: '/project' },
+  { name: 'Lägg till tid', href: '/report' },
+  { name: 'Lägg till kommentar', href: '/comment_ChangeStatus' },
 ]
 
 function classNames(...classes) {

@@ -8,6 +8,8 @@ import London from '../components/F_img/London.jpg';
 import Duved from '../components/F_img/duved.jpg';
 import Oslo from '../components/F_img/Oslo.jpg';
 
+
+
 export default function ChangeTime() {
   const [projects, setProjects] = useState([]);
   const [pageId, setPageId] = useState("");
@@ -18,9 +20,7 @@ export default function ChangeTime() {
   const [showEditButton, setShowEditButton] = useState(true);
   const [showSaveButton, setShowSaveButton] = useState(false);
 
-
   const image = [Duved, Sthlm, London, Oslo];
-
 
   useEffect(() => {
     fetch("http://localhost:5000/projects")
@@ -49,6 +49,7 @@ export default function ChangeTime() {
             Hours: editingMaxHours,
             PageIds: id
           })
+          // .then(window.location.reload())
           .catch((error) => {
             console.log(error);
             setError('Error: ' + error.message);
@@ -65,6 +66,7 @@ export default function ChangeTime() {
     setEditingProject(null);
     setShowEditButton(true);
     setShowSaveButton(false);
+
   };
 
   if (!isLoaded) {

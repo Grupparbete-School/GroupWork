@@ -74,7 +74,7 @@ export default function Dashboard() {
     return (
       <div className='backgroundColor'> 
         {NavbarOne}
-        <div  className='container-MainContent'>
+        <div className='container-MainContent'>
         {MainContent}
         </div>
       </div>
