@@ -25,7 +25,7 @@ export default function TimeForm() {
             (result)=>{ 
                 let newList = [];
                 for (let index = 0; index < result.length; index++) {
-                    newList.push(ProjectDTO(result[index].Status, result[index].ProjectName, result[index].Id))
+                    newList.push(ProjectDTO(result[index].Status, result[index].ProjectName, result[index].PageId))
                 }
                 setIsLoaded(true)
                 setActiveItems(newList.filter(item => item.status === "Aktivt"));
@@ -148,7 +148,7 @@ export default function TimeForm() {
                   </div>
                 </form>
               </div>
-            </div>
+            {/* </div> */}
           </>
         );
 }
