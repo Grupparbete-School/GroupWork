@@ -5,6 +5,7 @@ import firstImg from './F_img/Systembuilders1.jpg';
 import secondImg from './F_img/Systembuilders2.jpg';
 import thirdImg from './F_img/Systembuilders3.jpg';
 import forthImg from './F_img/Systembuilders4.jpg';
+import fifthImg from './F_img/Systembuilders5.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { SocialIcon } from 'react-social-icons';
 
@@ -16,7 +17,6 @@ export default function FirstPage () {
             <a href="http://localhost:3000/login"><button className="login-button">Login</button></a>
 
             <MainContent />
-            <FooterText/>
         </div>
     );
 };
@@ -93,31 +93,41 @@ function MainContent () {
 
             </div>
 
+            <div className="col">
+
+                <div className="card">
+                    <img src={fifthImg} class="card-img-top" alt="Woman infront of a computer" />
+                    <div className="card-body">
+                        <h5><strong>Contact</strong></h5>
+                        <p>To get in touch with us and start your dream project, 
+                            shoot us an email or take a look at our social media to see our work. 
+                            We're excited to help you turn your vision into a reality!</p>                          
+                        <hr/>
+
+                        <div className='contact'>
+                        <p>
+                            <strong>Email: </strong>
+                            <br />
+                            <a href='mailto:Systembuilders@Email.com' target='_blank'>Systembuilders@Email.com</a>
+                        </p>
+                        <p>
+                            <strong>Social media: </strong>
+                            <br />
+                            <div className='contact-socialMedia'>
+                                <SocialIcon url="https://twitter.com/" target='_blank' />
+                                <SocialIcon url="https://instagram.com/" target='_blank' />
+                                <SocialIcon url="https://linkedin.com/" target='_blank' />
+                                <SocialIcon url="https://facebook.com/" target='_blank' />
+                                <SocialIcon url="https://youtube.com/" target='_blank' />
+                            </div>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </section>
       </div>
-    );
-};
-
-const FooterText = () => {
-    return (
-        <div className='footer-container'>
-
-            <p className='leftFooter'>
-                <strong>Email: </strong>
-                <br />
-                <a href='mailto:Systembuilders@Email.com' target='_blank'>Systembuilders@Email.com</a>
-            </p>
-            <p className='rightFooter'>
-                <strong>Social media: </strong>
-                <br />
-                <div className='contact-socialMedia'>
-                    <SocialIcon url="https://twitter.com/" target='_blank' />
-                    <SocialIcon url="https://instagram.com/" target='_blank' />
-                    <SocialIcon url="https://linkedin.com/" target='_blank' />
-                    <SocialIcon url="https://facebook.com/" target='_blank' />
-                    <SocialIcon url="https://youtube.com/" target='_blank' />
-                </div>
-            </p>
-        </div>
     );
 };

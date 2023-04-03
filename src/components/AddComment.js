@@ -12,9 +12,6 @@ export default function AddComment(){
     const[projects, setProjects] = useState([]);
     const [timeReports, setTimeReports] = useState([]);
     const [options, setOptions] = useState([]);
-    const [checkedComments, setCheckedComments] = useState({});
-
-
     const [submitComment, setSubmitComment] = useState(true);
     const [submitCommentName, setSubmitCommentName] = useState(true);
     const [comment, setComment] = useState("");
@@ -25,7 +22,7 @@ export default function AddComment(){
     const projectUrl = "http://localhost:5000/projects";
     const timeReportsUrl = "http://localhost:5000/time";
 
-    const filteredPeople = peoples.filter((person) => person.Email === "ullzten@gmail.com");
+    const filteredPeople = peoples.filter((person) => person.Email === localStorage.setItem('userEmail', email));
       //fetch peopleDb
     useEffect(()=>{
         fetch(peopleUrl)
@@ -210,8 +207,8 @@ if (error) {
         return (
           <div>
             <div className="page-prompt" role="alert">
-              <h3>Lägga till tid</h3>
-              <h6>Med den här funktionen kan användaren lägg till arbetad tid i det aktuella projektet.</h6>
+              <h3>Lägga till kommentar</h3>
+              <h6>Med den här funktionen kan användaren lägg till kommentarer på tidsrapporter</h6>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -279,7 +276,6 @@ if (error) {
   <button
   type="submit"
   className="my-2 ont-roboto font-normal text-white text-sm bg-cyan-900 py-2 px-6 rounded-full shadow-lg transition-all duration-1000 transform translate-y-0 hover:py-2 hover:px-10 hover:translate-y-0 hover:bg-cyan-700 hover:text-black hover:border-none focus:outline-none"
-  // onClick={handleButtonClick}
 >
   Spara kommentar
 </button>
