@@ -91,8 +91,9 @@ export default function TimeForm() {
             </div>
             <div className="form-container">
               <div>
-                <form className="card-container-form" onSubmit={handleSubmit}>
+                <form className="card-container-form text-center" onSubmit={handleSubmit}>
                   <div className="col">
+                  <h1 className="text-center">Rapportera tid<br/><br/></h1>
                     <label for="Projects" className="form-heading">
                       Projekt
                     </label>
