@@ -83,7 +83,7 @@ export default function FetchPeople2() {
             {projects.map((item, index) => {
               return (
                 <div className="card" style={{ width: '17rem', margin: '0.5rem', padding: '0.5rem' }} key={index}>
-                  <img src={image[item.ImageIndex]} className="card-img-top" alt="Pictures of building projects" style={{ height: "auto" }} />
+                  <img src={item.ProjectImage.url} className="card-img-top" alt="Pictures of building projects" style={{ height: "auto" }} />
                   <div className="card-header">
                     <h5 className="card-title">{item.ProjectName}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">{item.StartDate} - {item.EndDate}</h6>
