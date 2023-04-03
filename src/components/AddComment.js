@@ -210,8 +210,8 @@ if (error) {
         return (
           <div>
             <div className="page-prompt" role="alert">
-              <h3>Lägga till tid</h3>
-              <h6>Med den här funktionen kan användaren lägg till arbetad tid i det aktuella projektet.</h6>
+              <h3>Lägga till kommentar</h3>
+              <h6>Med den här funktionen kan användaren lägg till kommentarer på tidsrapporter</h6>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -286,6 +286,7 @@ if (error) {
   
 </form>
     </main>
+    </div>
     </div>
         )
     };

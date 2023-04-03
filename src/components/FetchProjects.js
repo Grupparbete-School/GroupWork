@@ -12,11 +12,12 @@ const FetchProjects = () => {
   } = useFetchProjects();
   const image = [Duved, Sthlm, London, Oslo];
 
+
   return (
     <div>
       <div className="page-prompt" role="alert">
       <h3>Alla projekt</h3>
-        <h6>Här kan man se alla projekt som finns i företaget med lite mer information.</h6>
+        <h6>Här finns alla projekten med mer information.</h6>
       </div>
       {error && <div>error.message</div>}
       {loading && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -42,21 +43,23 @@ const FetchProjects = () => {
                         <h6>
                           {item.StartDate} -- {item.EndDate} <br />
                         </h6>
-                        Status: <strong>{item.Status}</strong>
+                        Status:{" "}
+                        <span style={{ color: item.StatusColor }}>
+                        <strong>{item.Status}</strong>
+                        </span>
                         <hr />
                         <p>
                           Budgeterad tid: {item.MaxHours} h<br />
                           Arbetad tid: {item.UsedHours} h<br />
                           Tid kvar:{" "}
                           <span style={{ color: item.HoursLeft < 0 ? "red" : "green" }}>
-                            {item.HoursLeft} h
+                          <strong>{item.HoursLeft} h</strong>
                           </span>
                           <br />
                           <hr />
                           Beskrivning: <br /> {item.Description} <br />
                         </p>
-                        <br />
-                        <hr/>
+                        
 
                         
                       </div>

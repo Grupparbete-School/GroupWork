@@ -205,7 +205,7 @@ export default function Navbar2(props) {
                           {({ active }) => (
                             <a
                               href='http://localhost:3000'
-                              className={classNames('block px-4 py-2 font-medium text-sm text-black no-underline', active ? ' bg-cyan-600 ' : '')}
+                              className={classNames('block px-4 py-2 font-medium text-sm text-black no-underline', active ? ' bg-cyan-600 text-white' : '')}
                               onClick={() => { localStorage.clear();}
                             }>
                               Logga ut

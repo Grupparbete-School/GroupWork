@@ -90,14 +90,14 @@ export default function TimeForm() {
               <h6>Med den här funktionen kan användaren lägg till arbetad tid i det aktuella projektet.</h6>
             </div>
             <div className="form-container">
-              <div className="shadow">
-                <form className="card-container" onSubmit={handleSubmit}>
+              <div>
+                <form className="card-container-form" onSubmit={handleSubmit}>
                   <div className="col">
                     <label for="Projects" className="form-heading">
                       Projekt
                     </label>
                     <select
-                      className="bg-gray-50 border border-gray-300 text-black text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-white border border-gray-300 text-black text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       value={selectedItem}
                       required
                       onChange={handleChange}
@@ -115,8 +115,8 @@ export default function TimeForm() {
                         Datum{" "}
                       </label>
                       <input
-                        className="bg-gray-50 border border-gray-300 text-black
-                                     text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-white border border-gray-300 text-black
+                                     text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         id="formInput"
                         type="date"
                         required
@@ -131,7 +131,7 @@ export default function TimeForm() {
                         Antal timmar
                       </label>
                       <input
-                        className="bg-gray-50 border border-gray-300 text-black text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="bg-white border border-gray-300 text-black text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         type="number"
                         required
                         value={hours}
@@ -142,7 +142,7 @@ export default function TimeForm() {
                     <br />
                     <br />
                     <br />
-                    <div className="form-button">
+                    <div className="default-btn">
                       <button type="submit">Lägg till</button>
                     </div>
                   </div>
