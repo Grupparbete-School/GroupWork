@@ -51,7 +51,12 @@ const FetchProjects = () => {
                           </span>
                           <br />
                           <hr />
-                          <strong>Beskrivning:</strong><br /> {item.Description} <br />
+                          <div style={{maxHeight: '50px', overflowY: 'scroll' }}>
+                            Beskrivning:
+                            <br />
+                              {item.Description}
+                            <br />
+                          </div>
                         </p>
                       </div>
                       <div className="card-footer" style={{padding: "10px 0"}}>
