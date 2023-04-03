@@ -14,6 +14,8 @@ const navigation = [
   { name: 'Projekt', href: '/project' },
   { name: 'Uppdatera tid', href: '/report' },
   { name: 'Ändra status', href: '/comment_ChangeStatus' },
+  { name: 'Skapa projekt', href: '/CreateProject' },
+  { name: 'Lägg till användare', href: '/AddEmployee' },
 ]
 
 function classNames(...classes) {
