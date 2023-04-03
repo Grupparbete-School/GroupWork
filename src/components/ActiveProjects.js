@@ -66,18 +66,8 @@ export default function FetchPeople2() {
         <div className="page-prompt" role="alert">
           <div>
           <p>
-            <h3><strong>Hej {people[0]?.Name}! 
-            <br/></strong>
-            <br/>
+            <h3><strong>Hej {people[0]?.Name}!</strong>
           </h3>
-            <h6>
-              Denna kod hämtar data från en server och filtrerar den för att visa projektinformation för den inloggade användaren. 
-              Om användarinformationen inte kan hämtas visas en laddningsikon tills data är tillgänglig. 
-              När data är tillgänglig visas projektinformation inklusive projektets namn, 
-              start- och slutdatum, status, beskrivning, totala återstående timmar, tidsbudget och två knappar för att lägga till timmar 
-              och kommentarer. Bilder används för olika byggnader i olika städer för att ge en visuell representation av projekten.
-            </h6>
-            <br/>
             <h5>Du har följande aktiva projekt:</h5>
           </p>
 
