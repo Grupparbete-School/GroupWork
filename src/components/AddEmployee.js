@@ -3,31 +3,34 @@ import Swal from "sweetalert2";
 import axios from "axios";
 
 export default function AddEmployee() {
+
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [projects, setProjects] = useState([]);
+  const [loading, setLoading]  = useState(false);
+  const [peoples, setPeoples] = useState([]);
   const [selectedName, setSelectedName] = useState("");
   const [selectedRole, setSelectedRole] = useState("");
   const [selectedEmail, setSelectedEmail] = useState("");
+  const [selectedImage, setSelectedImage] = useState("");
 
-  const projectUrl = "http://localhost:5000/people";
+  const peopleUrl = "http://localhost:5000/people";
 
-  useEffect(() => {
-    fetch(projectUrl)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setLoading(true);
-          setProjects(result);
+  useEffect(()=>{
+    fetch(peopleUrl)
+    .then(res => res.json())
+    .then(
+        (result)=>{
+            setLoading(true)
+            setPeoples(result)
         },
-        (error) => {
-          setLoading(true);
-          setError(error);
+        (error) =>{
+            setLoading(true)
+            setError(error)
         }
-      );
-  }, []);
+    );
+},[]); 
 
   const handleSubmit = async (event) => {
+
     event.preventDefault();
 
     // check if required input fields are empty
@@ -45,16 +48,18 @@ export default function AddEmployee() {
         Name: selectedName,
         Role: selectedRole,
         Email: selectedEmail,
+        image: selectedImage,
       });
 
       // show success message
       Swal.fire({
         icon: "success",
         iconColor: "red",
-        title: "Nytt projekt tillagt",
-        text: `Project '${selectedName}'.\nStart date: ${selectedRole}.\nEnd date: ${selectedEmail}.`,
+        title: `Välkommen till oss på System builders AB.`,
+        text: `${selectedName}, du kommer passa som handen i handsken som ${selectedRole}. Din angivna mail ${selectedEmail} kommer du få många härliga brev till.`,
         footer: "System Builders AB",
       });
+      
 
       // reset form inputs
       handleReset();
@@ -67,11 +72,13 @@ export default function AddEmployee() {
   console.log(selectedName)
   console.log(selectedEmail)
   console.log(selectedRole)
+  console.log(selectedImage)
   //reset form inputs
   const handleReset = () => {
     setSelectedName("");
     setSelectedRole("");
     setSelectedEmail("");
+    setSelectedImage("");
   };
 
   if (error) {
@@ -86,7 +93,7 @@ export default function AddEmployee() {
   
   return (
     <div className="flex justify-center items-center h-screen">
-      <form className="w-90">
+      <form className="w-96">
         <h1>Nyanställd</h1>
         <label className="block mb-2 font-bold text-gray-700" htmlFor="name">
           Namn:
@@ -108,7 +115,7 @@ export default function AddEmployee() {
           type="email"
           id="email"
           value={selectedEmail}
-          placeholder="skriv din email..."
+          placeholder="skriv din email, t.ex. namn@example.com..."
           onChange={(event) => setSelectedEmail(event.target.value)}
         />
 
@@ -126,6 +133,7 @@ export default function AddEmployee() {
           <option value="Owner">Ägare</option>
           <option value="Project Manager">Projektledare</option>
         </select>
+        
         <div className="flex justify-end mt-4">
           <button
             className="px-4 py-2 mr-2 font-bold text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:shadow-outline"
