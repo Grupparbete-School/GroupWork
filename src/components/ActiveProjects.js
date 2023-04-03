@@ -4,6 +4,7 @@ import Sthlm from '../components/F_img/sthlm.jpg';
 import London from '../components/F_img/London.jpg';
 import EiffelTower from '../components/F_img/EffielTower.jpg';
 import Oslo from '../components/F_img/Oslo.jpg';
+import Clock from './Clock';
 
 export default function FetchPeople2() {
   const [people, setPeople] = useState([]);
@@ -64,6 +65,9 @@ export default function FetchPeople2() {
     return (
       <div>
         <div className="page-prompt" role="alert">
+          <div className="clock-left">
+            {<Clock />}
+          </div><br/>
           <div>
           <p>
             <h3><strong>Hej {people[0]?.Name}!</strong>
