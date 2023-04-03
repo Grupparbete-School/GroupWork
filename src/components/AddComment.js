@@ -22,7 +22,7 @@ export default function AddComment(){
     const projectUrl = "http://localhost:5000/projects";
     const timeReportsUrl = "http://localhost:5000/time";
 
-    const filteredPeople = peoples.filter((person) => person.Email === localStorage.setItem('userEmail'));
+    const filteredPeople = peoples.filter((person) => person.Email === localStorage.getItem('userEmail'));
       //fetch peopleDb
     useEffect(()=>{
         fetch(peopleUrl)
@@ -275,7 +275,7 @@ if (error) {
       </div>
   <button
   type="submit"
-  className="my-2 ont-roboto font-normal text-white text-sm bg-cyan-900 py-2 px-6 rounded-full shadow-lg transition-all duration-1000 transform translate-y-0 hover:py-2 hover:px-10 hover:translate-y-0 hover:bg-cyan-700 hover:text-black hover:border-none focus:outline-none"
+  className="my-2 ont-roboto font-normal text-white text-sm bg-cyan-900 py-2 px-6 rounded-full shadow-lg hover:py-2 hover:bg-cyan-700 hover:text-black hover:border-none focus:outline-none"
 >
   Spara kommentar
 </button>

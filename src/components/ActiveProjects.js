@@ -63,22 +63,24 @@ export default function FetchPeople2() {
   else {
     return (
       <div>
-        <div className="alert alert-primary" role="alert" style={{ textAlign: 'center', backgroundColor: "rgba(207, 226, 255, 0.5)", opacity: "1", borderColor: "transparent" }}>
+        <div className="page-prompt" role="alert">
           <div>
-          <p style={{margin: "0 10%", textAlign: 'center'}}>
-            <strong>
+          <p>
+            <h3><strong>Hej {people[0]?.Name}! 
+            <br/></strong>
+            <br/>
+          </h3>
+            <h6>
               Denna kod hämtar data från en server och filtrerar den för att visa projektinformation för den inloggade användaren. 
               Om användarinformationen inte kan hämtas visas en laddningsikon tills data är tillgänglig. 
               När data är tillgänglig visas projektinformation inklusive projektets namn, 
               start- och slutdatum, status, beskrivning, totala återstående timmar, tidsbudget och två knappar för att lägga till timmar 
               och kommentarer. Bilder används för olika byggnader i olika städer för att ge en visuell representation av projekten.
-            </strong>
-          </p>
-          <br/>
-          <h4><strong>Hej {people[0]?.Name}! 
+            </h6>
             <br/>
-            Du har följande projekt:</strong>
-          </h4>
+            <h5>Du har följande aktiva projekt:</h5>
+          </p>
+
           </div>
         </div>
 
