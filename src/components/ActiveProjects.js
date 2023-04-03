@@ -31,13 +31,11 @@ export default function FetchPeople2() {
     fetch("http://localhost:5000/projects")
       .then(res => res.json())
       .then((result) => {
-        // setIsLoaded(true); 
         const active = result.filter(item => item.Status === "Aktivt" || item.Status === "Kommande");
         setItems(active);
         console.log(active)
       },
         (error) => {
-          // setIsLoaded(true); 
           setError(error);
         });
   }, []);
