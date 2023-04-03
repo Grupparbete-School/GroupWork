@@ -93,7 +93,7 @@ export default function FetchPeople2() {
                     <p className="card-text">
                       <strong>Total arbetstimmar:</strong><br/>
                       <span style={{color: item.HoursLeft <= 0 ? 'red' : 'green'}}>
-                        <strong>{item.HoursLeft}</strong>
+                        <strong>{item.HoursLeft} h</strong>
                       </span>
                     </p>
                     <p className="card-text">
@@ -102,14 +102,6 @@ export default function FetchPeople2() {
                     </p>
                   </div>
                   <div className="card-footer" style={{padding: "10px 0"}}>
-                    <div className="text-center">
-                      <a href="#" className="btn btn-primary btn-sm" style={{ marginRight: '10px', background: "linear-gradient(90deg, #0e7490 20%, #164e63 70%)" }}>
-                        Tidsrapportera
-                      </a>
-                      <a href="#" className="btn btn-primary btn-sm" style={{ marginLeft: '10px', background: "linear-gradient(90deg, #0e7490 20%, #164e63 70%)" }}>
-                        Kommentera
-                      </a>
-                    </div>
                   </div>
                 </div>
               );
