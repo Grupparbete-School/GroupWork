@@ -22,7 +22,7 @@ export default function AddComment(){
     const projectUrl = "http://localhost:5000/projects";
     const timeReportsUrl = "http://localhost:5000/time";
 
-    const filteredPeople = peoples.filter((person) => person.Email === localStorage.setItem('userEmail', email));
+    const filteredPeople = peoples.filter((person) => person.Email === localStorage.getItem('userEmail'));
       //fetch peopleDb
     useEffect(()=>{
         fetch(peopleUrl)
