@@ -25,7 +25,7 @@ export default function TimeForm() {
             (result)=>{ 
                 let newList = [];
                 for (let index = 0; index < result.length; index++) {
-                    newList.push(ProjectDTO(result[index].Status, result[index].ProjectName, result[index].Id))
+                    newList.push(ProjectDTO(result[index].Status, result[index].ProjectName, result[index].PageId))
                 }
                 setIsLoaded(true)
                 setActiveItems(newList.filter(item => item.status === "Aktivt"));
@@ -90,7 +90,7 @@ export default function TimeForm() {
               <h6>Med den här funktionen kan användaren lägg till arbetad tid i det aktuella projektet.</h6>
             </div>
             <div className="form-container">
-              <div className="shadow">
+              {/* <div className="shadow"> */}
                 <form className="card-container" onSubmit={handleSubmit}>
                   <div className="col">
                     <label for="Projects" className="form-heading">
@@ -148,7 +148,7 @@ export default function TimeForm() {
                   </div>
                 </form>
               </div>
-            </div>
+            {/* </div> */}
           </>
         );
 }
