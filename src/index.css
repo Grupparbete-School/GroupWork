@@ -70,6 +70,7 @@ code {
 .card{
   width: 250px;
   padding: 10px;
+
 }
 
 .col{
@@ -118,6 +119,7 @@ code {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
 }
 
 .contact{
