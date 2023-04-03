@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+export const PeoplesContext = createContext([]);
 
 const ProfileImage = () => {
+  
   const peopleUrl = "http://localhost:5000/people";
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [peoples, setPeoples] = useState([]);
-  const [profileImage, setProfileImage] = useState("");
 
   useEffect(() => {
     fetch(peopleUrl)
@@ -22,14 +23,16 @@ const ProfileImage = () => {
         }
       );
   }, []);
-  const loggedInUserId = localStorage.getItem("userEmail"); // replace with actual logged-in user ID
+
+  const loggedInUser = localStorage.getItem("userEmail"); 
+  
   return (
     <div>
       {peoples.map((person) => {
-        if (person.Email === loggedInUserId) {
+        if (person.Email === loggedInUser) {
           return (
             <div key={person.PersonId}>
-              <h2>{person.Name}</h2>
+              {/* <h2>{person.Name}</h2> */}
               {person.ProfileImage && (
                 <img
                   src={person.ProfileImage.url}
