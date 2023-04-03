@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import '../index.css';
 
 export default function CreateProject() {
   const [error, setError] = useState("");
@@ -111,13 +113,19 @@ export default function CreateProject() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <form className="w-90">
-        <h1 className="mb-5 text-center">Lägga till nytt projekt</h1>
+    <>
+      <div className="page-prompt" role="alert">
+          <h3>Lägga till projekt</h3>
+          <h6>Här kan man lägga till ett nytt projekt <br/>
+              Fyll i uppgifterna och spara ner.</h6>
+      </div>
+    <div className="flex justify-center items-center h-screen" style={{height: "auto", padding: "50px 10px"}}>
+      <form className="mx-auto text-center card-container2">
+        <h1 className="mb-5 text-center">Lägga till nytt projekt<br/><br/></h1>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label
-              className="block mb-2 font-bold text-gray-700"
+              className="block mb-2 p-2.5 font-bold text-black"
               htmlFor="projectName"
             >
               Projekt namn:
@@ -130,22 +138,7 @@ export default function CreateProject() {
               onChange={(event) => setSelectedProjectName(event.target.value)}
             />
             <label
-              className="block mb-2 font-bold text-gray-700"
-              htmlFor="maxHours"
-            >
-              Budgeterad tid:
-            </label>
-            <input
-              className="w-full px-3 py-2 border rounded-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
-              id="maxHours"
-              value={selectedMaxHours}
-              onChange={(event) => setSelectedMaxHours(event.target.value)}
-            />
-          </div>
-          <div>
-            <label
-              className="block mb-2 font-bold text-gray-700"
+              className="block mb-2 p-2.5 font-bold text-black"
               htmlFor="startDate"
             >
               Start datum:
@@ -157,8 +150,23 @@ export default function CreateProject() {
               value={selectedStartDate}
               onChange={(event) => setSelectedStartDate(event.target.value)}
             />
+          </div>
+          <div>
             <label
-              className="block mb-2 font-bold text-gray-700"
+              className="block mb-2 p-2.5 font-bold text-black"
+              htmlFor="maxHours"
+            >
+              Budgeterad tid:
+            </label>
+            <input
+              className="w-full px-3 py-2 border rounded-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="text"
+              id="maxHours"
+              value={selectedMaxHours}
+              onChange={(event) => setSelectedMaxHours(event.target.value)}
+            />
+            <label
+              className="block mb-2 p-2.5 font-bold text-black"
               htmlFor="endDate"
             >
               Slut datum:
@@ -173,7 +181,7 @@ export default function CreateProject() {
           </div>
           <div className="col-span-2">
             <label
-              className="block mb-2 font-bold text-gray-700"
+              className="block mb-2 p-2.5 font-bold text-black"
               htmlFor="status"
             >
               Status:
@@ -193,7 +201,7 @@ export default function CreateProject() {
           </div>
           <div className="col-span-2">
             <label
-              className="block mb-2 font-bold text-gray-700"
+              className="block mb-2 p-2.5 font-bold text-black"
               htmlFor="description"
             >
               Beskrivning:
@@ -205,25 +213,28 @@ export default function CreateProject() {
               onChange={(event) => setSelectedDescription(event.target.value)}
             ></textarea>
           </div>
-        </div>
+        </div><br/><br/>
 
-        <div className="flex justify-end">
+        <div className="card-footer" style={{padding: "10px 0"}}>
+        <div className="default-btn">
           <button
-            className="px-4 py-2 mr-2 font-bold text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:shadow-outline"
             type="submit"
             onClick={handleSubmit}
           >
             Spara
           </button>
+          </div><br/>
+          <div className="default-btn">
           <button
-            className="px-4 py-2 font-bold text-white bg-gray-500 rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:shadow-outline"
             type="button"
             onClick={handleReset}
           >
             Återställ
           </button>
+          </div>
         </div>
       </form>
     </div>
+   </> 
   );
 }
