@@ -113,6 +113,25 @@ code {
   border-radius: 25px; */
 }
 
+/* AllProjects cards*/
+.projectsCardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  grid-gap: 4rem;
+  justify-content: center;
+  align-content: center;
+  padding: 25px 15%;
+}
+
+.projectsCol {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 250px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
 /* FirstPage.js cards */
 .card-containerFP{
   padding: 30px;

@@ -23,53 +23,49 @@ const FetchProjects = () => {
       {loading && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
         <div className="spinner-border" role="status"></div></div>}
       {!loading && (
-        <div className="card-container">
+        <div className="projectsCardContainer">
           {data.map && data.map((item, index) => (
-
-            <div>
-              <div>
-
-                <section >
-
-                  <div className="col">
-
+                  <div className="projectsCol">
                     <div className="card">
                       <img src={image[index]} className="card-img-top" alt="Pictures of building projects" />
                       <div className="card-body">
                         <h5>
                           <div key={index}>
                             <strong>{item.ProjectName}</strong>
-                          </div></h5>
-                        <h6>
-                          {item.StartDate} -- {item.EndDate} <br />
+                          </div>
+                        </h5>
+                        <h6 className="card-subtitle mb-2 text-muted">
+                          {item.StartDate} - {item.EndDate} <br />
                         </h6>
-                        Status:{" "}
+                        <strong>Status:</strong>{" "}
                         <span style={{ color: item.StatusColor }}>
                         <strong>{item.Status}</strong>
                         </span>
                         <hr />
                         <p>
-                          Budgeterad tid: {item.MaxHours} h<br />
-                          Arbetad tid: {item.UsedHours} h<br />
-                          Tid kvar:{" "}
+                          <strong>Budgeterad tid: </strong>{item.MaxHours} h<br />
+                          <strong>Arbetad tid: </strong>{item.UsedHours} h<br />
+                          <strong>Tid kvar:</strong>{" "}
                           <span style={{ color: item.HoursLeft < 0 ? "red" : "green" }}>
                           <strong>{item.HoursLeft} h</strong>
                           </span>
                           <br />
                           <hr />
-                          Beskrivning: <br /> {item.Description} <br />
+                          <strong>Beskrivning:</strong><br /> {item.Description} <br />
                         </p>
-                        
-
-                        
                       </div>
+                      <div className="card-footer" style={{padding: "10px 0"}}>
+                    <div className="text-center">
+                      <a href="http://localhost:3000/report" className="btn btn-primary btn-sm" style={{ marginRight: '10px', background: "linear-gradient(90deg, #0e7490 20%, #164e63 70%)" }}>
+                        Ändra Tid
+                      </a>
+                      <a href="http://localhost:3000/comment_ChangeStatus" className="btn btn-primary btn-sm" style={{ marginLeft: '10px', background: "linear-gradient(90deg, #0e7490 20%, #164e63 70%)" }}>
+                        Ändra Status
+                      </a>
                     </div>
-
                   </div>
-
-                </section>
-              </div>
-            </div>
+                    </div>
+                  </div>
           ))}
         </div>
       )}

@@ -115,7 +115,7 @@ export default function ChangeStatus() {
           <h1 className="text-center">Ändra status<br/><br/></h1>
           
 
-          <select onChange={(e) => setSelectedPageId(e.target.value)}>
+          <select style={{marginBottom: "20px"}} onChange={(e) => setSelectedPageId(e.target.value)}>
             <option value="">Välj ett projekt</option>
             {projectOptions}
           </select>
