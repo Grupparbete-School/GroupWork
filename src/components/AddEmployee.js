@@ -131,7 +131,7 @@ export default function AddEmployee() {
           <option value="">Välj roll</option>
           <option value="user">Användare</option>
           <option value="owner">Ägare</option>
-          <option value="project Manager">Projektledare</option>
+          <option value="project manager">Projektledare</option>
         </select>
         
         <div className="flex justify-end mt-4">
