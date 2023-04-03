@@ -4,7 +4,6 @@ import Sthlm from '../components/F_img/sthlm.jpg';
 import London from '../components/F_img/London.jpg';
 import EiffelTower from '../components/F_img/EffielTower.jpg';
 import Oslo from '../components/F_img/Oslo.jpg';
-import Clock from './Clock';
 
 export default function FetchPeople2() {
   const [people, setPeople] = useState([]);
@@ -59,19 +58,19 @@ export default function FetchPeople2() {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
         <div className="spinner-border" role="status"></div></div>
-    )
+    );
   }
   else {
     return (
       <div>
         <div className="page-prompt" role="alert">
-          <div className="clock-left">
-            {<Clock />}
-          </div><br/>
           <div>
           <p>
-            <h3><strong>Hej {people[0]?.Name}!</strong>
+            <h3><strong>{people[0]?.Name}</strong>
           </h3>
+          Här kan du både tidsrapportera och kommentera på varje projekt
+          <br/>
+          <br/>
             <h5>Du har följande aktiva projekt:</h5>
           </p>
 
@@ -97,7 +96,7 @@ export default function FetchPeople2() {
                     <p className="card-text">
                       <strong>Total arbetstimmar:</strong><br/>
                       <span style={{color: item.HoursLeft <= 0 ? 'red' : 'green'}}>
-                        <strong>{item.HoursLeft} h</strong>
+                        <strong>{item.HoursLeft}</strong>
                       </span>
                     </p>
                     <p className="card-text">
@@ -106,6 +105,14 @@ export default function FetchPeople2() {
                     </p>
                   </div>
                   <div className="card-footer" style={{padding: "10px 0"}}>
+                    <div className="text-center">
+                      <a href="http://localhost:3000/report" className="btn btn-primary btn-sm" style={{ marginRight: '10px', background: "linear-gradient(90deg, #0e7490 20%, #164e63 70%)" }}>
+                        Tidsrapportera
+                      </a>
+                      <a href="http://localhost:3000/comment_ChangeStatus" className="btn btn-primary btn-sm" style={{ marginLeft: '10px', background: "linear-gradient(90deg, #0e7490 20%, #164e63 70%)" }}>
+                        Kommentera
+                      </a>
+                    </div>
                   </div>
                 </div>
               );

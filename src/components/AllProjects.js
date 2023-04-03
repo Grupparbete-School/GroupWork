@@ -15,25 +15,20 @@ const AllProjects = () => {
   return (
     <div>
       <div className="page-prompt" role="alert">
-      <h3>Alla projekt</h3>
+        <h3>Alla projekt</h3>
         <h6>Här syns en översikt över alla projekt som finns i företaget just nu.</h6>
       </div>
       {error && <div>error.message</div>}
       {loading && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
         <div className="spinner-border" role="status"></div></div>}
       {!loading && (
-        <div className="card-container">
+        <div className="projectsCardContainer">
           {data.map && data.map((item, index) => (
-
-            <div>
-              <div>
-
-                <section >
-
-                  <div className="col">
-
+                  <div className="projectsCol">
                     <div className="card">
+
                       <img src={image[index]} className="card-img-top" alt="Pictures of building projects" />
+
                       <div className="card-body">
                         <h5>
                           <div key={index}>
@@ -53,13 +48,9 @@ const AllProjects = () => {
                           </span>
                         </p>                    
                       </div>
+                      
                     </div>
-
                   </div>
-
-                </section>
-              </div>
-            </div>
           ))}
         </div>
       )}

@@ -110,12 +110,12 @@ export default function ChangeStatus() {
           Klicka på "Välj ett projekt" för att se mer info och ändra statusen.</h6>
         </div>
       
-      <div className="flex items-center h-screen text-black">
+      <div className="flex items-center h-screen text-black" style={{height: "auto", padding: "50px 10px"}}>
         <div className="mx-auto text-center card-container2">
           <h1 className="text-center">Ändra status<br/><br/></h1>
           
 
-          <select onChange={(e) => setSelectedPageId(e.target.value)}>
+          <select style={{marginBottom: "20px"}} onChange={(e) => setSelectedPageId(e.target.value)}>
             <option value="">Välj ett projekt</option>
             {projectOptions}
           </select>

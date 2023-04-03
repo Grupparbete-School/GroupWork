@@ -29,11 +29,11 @@ function MainContent () {
 
           <section className="card-containerFP">
 
-            <div className="col">
+            <div className="projectsCol">
                 
                     <div className="card">
                         <img src={firstImg} className="card-img-top" alt="Welding" />
-                        <div className="card-body">
+                        <div className="card-body" style={{maxHeight: '350px', overflowY: 'scroll' }}>
                             <h5><strong>Welcome to Systembuilders AB</strong></h5>
                             <p>A leading construction firm with a passion
                             for creating stunning buildings that stand the test of time. 
@@ -45,11 +45,11 @@ function MainContent () {
 
             </div>
 
-            <div className="col">
+            <div className="projectsCol">
 
                     <div className="card">
                     <img src={secondImg} className="card-img-top" alt="Luxury apartments" />
-                        <div className="card-body">
+                        <div className="card-body" style={{maxHeight: '350px', overflowY: 'scroll' }}>
                             <h5><strong>Project Stockholm</strong></h5>
                             <p>We recently completed an exclusive project in Stockholm, 
                             consisting of 35 beautifully crafted bungalows that boast luxury and comfort. 
@@ -61,11 +61,11 @@ function MainContent () {
 
             </div>
 
-            <div className="col">
+            <div className="projectsCol">
 
                     <div className="card">
                         <img src={thirdImg} className="card-img-top" alt="Sunny apartment, simple interior design" />
-                        <div className="card-body">
+                        <div className="card-body" style={{maxHeight: '350px', overflowY: 'scroll' }}>
                             <h5><strong>Current projects</strong></h5>
                             <p>Currently, we are working on several exciting projects, including a 150 apartment building 
                             in the heart of Oslo, a renovation project at London Bridge, and a renovation project at 
@@ -77,11 +77,11 @@ function MainContent () {
 
             </div>
 
-            <div className="col">
+            <div className="projectsCol">
 
                     <div className="card">
                         <img src={forthImg} class="card-img-top" alt="Hands coming together with Lego people" />
-                        <div className="card-body">
+                        <div className="card-body" style={{maxHeight: '350px', overflowY: 'scroll' }}>
                             <h5><strong>Values</strong></h5>
                             <p>At our company, we understand that our employees are the backbone of our success, 
                             and we prioritize their well-being by offering a supportive and inclusive work environment. 
@@ -93,11 +93,11 @@ function MainContent () {
 
             </div>
 
-            <div className="col">
+            <div className="projectsCol">
 
                 <div className="card">
                     <img src={fifthImg} class="card-img-top" alt="Woman infront of a computer" />
-                    <div className="card-body">
+                    <div className="card-body" style={{maxHeight: '350px', overflowY: 'scroll' }}>
                         <h5><strong>Contact</strong></h5>
                         <p>To get in touch with us and start your dream project, 
                             shoot us an email or take a look at our social media to see our work. 

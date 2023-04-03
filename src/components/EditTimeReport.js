@@ -18,11 +18,15 @@ export default function AddComment(){
     const [commentName, setCommentName] = useState("");
     const [selectedReport, setSelectedReport] = useState('');
 
+    const [hours, setHours] = useState(0);
+
     const peopleUrl = "http://localhost:5000/people";
     const projectUrl = "http://localhost:5000/projects";
     const timeReportsUrl = "http://localhost:5000/time";
 
-    const filteredPeople = peoples.filter((person) => person.Email === localStorage.getItem('userEmail'));
+    // const filteredPeople = peoples.filter((person) => person.Email === localStorage.getItem('userEmail'));
+    const filteredPeople = peoples.filter((person) => person.Email ==="ullzten@gmail.com");
+
       //fetch peopleDb
     useEffect(()=>{
         fetch(peopleUrl)
@@ -208,86 +212,92 @@ if (error) {
           <div>
             <div className="page-prompt" role="alert">
               <h3>Lägga till kommentar</h3>
-              <h6>Med den här funktionen kan användaren lägg till kommentarer på tidsrapporter.
-                <br/>
-                Välj det projektet du vill lägga till en kommentar på i rullisten för att börja.
-              </h6>
+              <h6>Med den här funktionen kan användaren lägg till kommentarer på tidsrapporter</h6>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
-              <main className='card-container2'>
-            
-            <h1 className="text-lg font-bold text-center">Projekt</h1>
-            <div className="top-16 m-2">
-              <select
-                className="w-full bg-white rounded-lg shadow-md py-2 px-3 text-black
-                leading-tight focus:outline-none focus:shadow-outline active-dropdown"
-                value={selectedReport}
-                onChange={(e) => setSelectedReport(e.target.value)}
-              >
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+              <main className='bg-gray-50 rounded border border-2'>
 
-                <option className="py-2 text-gray-400">Välj projekt</option>
-                {options}
-              </select>
-            </div>
+<div className="top-16 m-2">
+  <select
+    className="w-full bg-white rounded-lg shadow-md py-2 px-3 text-black
+    leading-tight focus:outline-none focus:shadow-outline active-dropdown"
+    value={selectedReport}
+    onChange={(e) => setSelectedReport(e.target.value)}
+  >
+    <option className="py-2 text-gray-400">Välj projekt</option>
+    {options}
+  </select>
+</div>
 
 
-            <form
-                  onSubmit={handleSubmit}
-                  className="mt-4 flex flex-col justify-center items-center"
-                >
-                  <h1 className="text-lg font-bold">Rubrik</h1>
-                  <input
-                    className="bg-white border-2 border-gray-500 px-4 py-2 rounded"
-                    type="text"
-                    placeholder="Skriv rubrik här..."
-                    value={comment}
-                    onChange={(e) => {
-                      setComment(e.target.value);
-                    }}
-                  />
+<form
+      onSubmit={handleSubmit}
+      className="mt-4 flex flex-col justify-center items-center"
+    >
+      <h1 className="text-lg font-bold">Rubrik</h1>
+      <input
+        className="bg-white border-2 border-gray-500 px-4 py-2 rounded"
+        type="text"
+        placeholder="skriv rubrik här..."
+        value={comment}
+        onChange={(e) => {
+          setComment(e.target.value);
+        }}
+      />
 
-                  <div>
-                    <label>
-                      <input
-                        type="checkbox"
-                        checked={submitComment}
-                        onChange={(e) => setSubmitComment(e.target.checked)}
-                      />
-                      Lägg till rubrik
-                    </label>
-                  </div>
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={submitComment}
+            onChange={(e) => setSubmitComment(e.target.checked)}
+          />
+          Lägg till rubrik
+        </label>
+      </div>
 
-                  <h1 className="text-lg font-bold mt-4">Kommentar</h1>
-                  <textarea
-                    className="w-72 h-40 m-2 box-borders border-2 border-gray-500 bg-white text-black px-4 py-2 resize-none rounded"
-                    placeholder="Skriv kommentar här..."
-                    value={commentName}
-                    onChange={(d) => {
-                      setCommentName(d.target.value);
-                    }}
-                  ></textarea>
+      <h1 className="text-lg font-bold mt-4">Kommentar</h1>
+      <textarea
+        className="w-72 h-40 m-2 box-borders border-2 border-gray-500 bg-white text-black px-4 py-2 resize-none rounded"
+        placeholder="skriv kommentar här..."
+        value={commentName}
+        onChange={(d) => {
+          setCommentName(d.target.value);
+        }}
+      ></textarea>
 
-                  <div>
-                    <label>
-                      <input
-                        type="checkbox"
-                        checked={submitCommentName}
-                        onChange={(e) => setSubmitCommentName(e.target.checked)}
-                      />
-                      Lägg till kommentar
-                    </label>
-                    <br/><br/>
-                  </div>
-                  <div className="default-btn">
-                  <button type="submit">Spara kommentar </button>
-                  </div>
-              
-            </form>
-                </main>
-                </div>
-                  </div>
-                    )
-                };
-              };
-                
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={submitCommentName}
+            onChange={(e) => setSubmitCommentName(e.target.checked)}
+          />
+          Lägg till kommentar
+        </label>
+      </div>
+
+      <h1 className="text-lg font-bold mt-4">Timmar</h1>
+  <input
+    className="bg-white border-2 border-gray-500 px-4 py-2 rounded"
+    type="number"
+    placeholder="ange antal timmar här..."
+    value={hours}
+    onChange={(e) => setHours(e.target.value)}
+  />
+  <button
+  type="submit"
+  className="my-2 ont-roboto font-normal text-white text-sm bg-cyan-900 py-2 px-6 rounded-full shadow-lg hover:py-2 hover:bg-cyan-700 hover:text-black hover:border-none focus:outline-none"
+>
+  Spara kommentar
+</button>
+  
+</form>
+    </main>
+    </div>
+       </div>
+        )
+    };
+  };
+    

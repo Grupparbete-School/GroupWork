@@ -92,65 +92,76 @@ export default function AddEmployee() {
   } else {
   
   return (
-    <div className="flex justify-center items-center h-screen">
-      <form className="w-96">
-        <h1>Nyanställd</h1>
-        <label className="block mb-2 font-bold text-gray-700" htmlFor="name">
-          Namn:
-        </label>
-        <input
-          className="w-full px-3 py-2 border rounded-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type="text"
-          id="name"
-          value={selectedName}
-          placeholder="skriv ditt namn"
-          onChange={(event) => setSelectedName(event.target.value)}
-        />
+    <>
+      <div className="page-prompt" role="alert">
+          <h3>Lägga till personal</h3>
+          <h6>Här kan man lägga till användare i systemet. <br/>
+              Fyll i uppgifterna och spara ner.</h6>
+      </div>
 
-        <label className="block mb-2 font-bold text-gray-700" htmlFor="email">
-          Email:
-        </label>
-        <input
-          className="w-full px-3 py-2 border rounded-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          type="email"
-          id="email"
-          value={selectedEmail}
-          placeholder="skriv din email, t.ex. namn@example.com..."
-          onChange={(event) => setSelectedEmail(event.target.value)}
-        />
+      <div className="flex justify-center items-center h-screen" style={{height: "auto", padding: "50px 10px"}}>
+        <form className="mx-auto text-center card-container2">
+          <h1 className="text-center">Nyanställd<br/><br/></h1>
+          <label className="block mb-2 p-2.5 font-bold text-black" htmlFor="name">
+            Namn:
+          </label>
+          <input
+            className="w-full px-3 py-2 border rounded-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="text"
+            id="name"
+            value={selectedName}
+            placeholder="skriv ditt namn"
+            onChange={(event) => setSelectedName(event.target.value)}
+          />
 
-        <label className="block mb-2 font-bold text-gray-700" htmlFor="role">
-          Roll:
-        </label>
-        <select
-          className="w-full px-3 py-2 border rounded-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="role"
-          value={selectedRole}
-          onChange={(event) => setSelectedRole(event.target.value)}
-        >
-          <option value="">Välj roll</option>
-          <option value="user">Användare</option>
-          <option value="owner">Ägare</option>
-          <option value="project manager">Projektledare</option>
-        </select>
-        
-        <div className="flex justify-end mt-4">
-          <button
-            className="px-4 py-2 mr-2 font-bold text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:shadow-outline"
-            type="submit"
-            onClick={handleSubmit}
+          <label className="block mb-2 p-2.5 font-bold text-black" htmlFor="email">
+            Email:
+          </label>
+          <input
+            className="w-full px-3 py-2 border rounded-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="email"
+            id="email"
+            value={selectedEmail}
+            placeholder="skriv din email, t.ex. namn@example.com..."
+            onChange={(event) => setSelectedEmail(event.target.value)}
+          />
+
+          <label className="block mb-2 p-2.5 font-bold text-black" htmlFor="role">
+            Roll:
+          </label>
+          <select
+            className="w-full px-3 py-2 border rounded-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="role"
+            value={selectedRole}
+            onChange={(event) => setSelectedRole(event.target.value)}
           >
-            Spara
-          </button>
-          <button
-            className="px-4 py-2 font-bold text-white bg-gray-500 rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:shadow-outline"
-            type="button"
-            onClick={handleReset}
-          >
-            Återställ
-          </button>
-        </div>
-      </form>
-    </div>
+            <option value="">Välj roll</option>
+            <option value="user">Användare</option>
+            <option value="owner">Ägare</option>
+            <option value="project manager">Projektledare</option>
+          </select><br/><br/>
+          
+          <div className="card-footer" style={{padding: "10px 0"}}>
+            <div className="default-btn">
+              <button
+                type="submit"
+                onClick={handleSubmit}
+              >
+                Spara
+              </button>
+            </div><br/>
+
+            <div className="default-btn">
+              <button
+                type="button"
+                onClick={handleReset}
+              >
+                Återställ
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }}
