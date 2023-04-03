@@ -19,6 +19,9 @@ code {
 
 .container-MainContent{
   background-image: url('../public/images/Bg-pic.jpeg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   width: 100%;
   height: auto;
   min-height: 88vh;
@@ -34,6 +37,7 @@ code {
   padding: 3% 3%;
   text-align: center;
 }
+
 
 /* LOGIN */
 
@@ -75,6 +79,28 @@ code {
   padding: 5px;
 }
 
+.card-container-form{
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color:#145f748f;
+  border-radius: 25px;
+}
+
+.card-container2{
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color:#145f748f;
+  border-radius: 25px;
+}
+
 .card-container{
   padding: 30px;
   display: flex;
@@ -92,12 +118,30 @@ code {
   flex-wrap: wrap;
 }
 
+.contact{
+  text-decoration: none;
+  color: black;
+}
+
+.contact a{
+  text-decoration: none;
+  color:black;
+  
+}
+.contact a:hover{
+  text-decoration: none;
+  color:black;
+  background-color:#cbe2e9fb;
+  border-radius: 25px;
+}
+
 
 .form-container{
   display: flex;
   justify-content: center;
   margin-top: 70px;
 }
+
 
   /*FORM HEADING*/
 .form-heading{
@@ -149,25 +193,20 @@ code {
 .default-btn{
   font-weight: 800;
   font-size: 14px;
+  text-align: center;
   color: #fcfbfb;
   background: linear-gradient(90deg, #0e7490 0%, #164e63 70%);
   padding: 10px 30px;
   border: solid #28363D 1px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   border-radius: 50px;
-  transition : 835ms;
   transform: translateY(0);
   cursor: pointer;
 }
 
-/* .default-btn:hover{
-  transition : 835ms;
-  padding: 10px 44px;
-  transform : translateY(-0px);
-  background: linear-gradient(90deg, #0e7490 20%, #164e63 70%);
-  color: #f1f4f7;
-  border: solid 1px #28363D;
-} */
+.default-btn:hover{
+  background: #0e7490;
+}
 
 .list-container{
   display: flex;
@@ -305,30 +344,6 @@ footer {
     text-align: left;
     padding-top: 15px; 
     width: 100%;
-  }
-
-  .contact-socialMedia{
-    background-color:#fafcf9;
-    border-radius: 25px;
-  }
-
-  .rightFooter{
-    margin-right: 10%;
-  }
-
-  .leftFooter{
-    margin-left: 10%;
-    text-decoration: none;
-  }
-  .leftFooter a{
-    text-decoration: none;
-    color: white;
-  }
-  .leftFooter a:hover{
-    text-decoration: none;
-    color: white;
-    background-color: #164e6348;
-    border-radius: 25px;
   }
 
   .swal-button {

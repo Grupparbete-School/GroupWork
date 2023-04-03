@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from '../components/Navbar'; import Navbar2 from '../components/Navbar2';
-// import ChangeStatus from "../components/ChangeStatus";
+import ChangeStatus from "../components/ChangeStatus";
 import AddComment from '../components/AddComment';
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,7 +18,7 @@ export default function Comment_ChangeStatus() {
     MainContent = <AddComment />; 
   } else { 
     NavbarOne = <Navbar2 /> 
-    MainContent = "";
+    MainContent = <ChangeStatus />;
   } 
   
   return (

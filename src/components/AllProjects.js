@@ -16,7 +16,7 @@ const AllProjects = () => {
     <div>
       <div className="page-prompt" role="alert">
       <h3>Alla projekt</h3>
-        <h6>Här kan man se alla projekt som finns i företaget.</h6>
+        <h6>Här syns en översikt över alla projekt som finns i företaget just nu.</h6>
       </div>
       {error && <div>error.message</div>}
       {loading && <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -39,7 +39,10 @@ const AllProjects = () => {
                           <div key={index}>
                             <strong>{item.ProjectName}</strong>
                           </div></h5>
-                        Status: <strong>{item.Status}</strong>
+                          Status:{" "}
+                        <span style={{ color: item.StatusColor }}>
+                        <strong>{item.Status}</strong>
+                        </span>
                         <hr />
                         <p>
                           Budgeterad tid: {item.MaxHours} h<br />

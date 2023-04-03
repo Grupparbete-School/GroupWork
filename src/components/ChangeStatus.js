@@ -97,47 +97,80 @@ export default function ChangeStatus() {
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!loading) {
-    return <div>Loading...</div>;
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <div className="spinner-border" role="status"></div></div>
+    );
   } else {
     return (
-      <div className="flex items-center h-screen">
-        <div className="mx-auto text-center">
-          <h1 className="text-center">Ändra status</h1>
+      <>
+        <div className="page-prompt" role="alert">
+        <h3>Ändra projekt-status</h3>
+        <h6>Här kan man ändra statusen för projekten. <br/>
+          Klicka på "Välj ett projekt" för att se mer info och ändra statusen.</h6>
+        </div>
+      
+      <div className="flex items-center h-screen text-black">
+        <div className="mx-auto text-center card-container2">
+          <h1 className="text-center">Ändra status<br/><br/></h1>
+          
 
           <select onChange={(e) => setSelectedPageId(e.target.value)}>
-            <option value="">Select a project</option>
+            <option value="">Välj ett projekt</option>
             {projectOptions}
           </select>
-
+          <br/>
+          <br/>
           {selectedProject && (
-            <div className="card w-full">
+            <div className="card w-full form-bg">
+
               <h2>{selectedProject.ProjectName}</h2>
+
               <p className="card-subtitle mb-2 text-muted">
                 {selectedProject.Description}
               </p>
+
               <p>
-                Status:{" "}
+                <strong>Status:{" "}</strong>
                 <span style={{ color: selectedProject.StatusColor }}>
                   {selectedProject.Status}
-                </span>
+                </span>               
               </p>
 
               <p>
-                Timespan: {selectedProject.StartDate} -{" "}
+                <strong>Tidsgräns:</strong> 
+                <br/>
+                {selectedProject.StartDate} -{" "}
                 {selectedProject.EndDate}
-              </p>
-              <p>Worked Hours: {selectedProject.UsedHours}</p>
-              <p>Hours Left: {selectedProject.HoursLeft}</p>
+               </p>
 
-              <StatusCheckboxes
-                selectedStatus={selectedStatus}
-                setSelectedStatus={setSelectedStatus}
-              />
+              <p>
+                <strong>Arbetad tid: </strong>
+
+                {selectedProject.UsedHours} h
+              </p>
+
+                <p>
+                  <strong>Tid kvar:</strong>{" "}
+                  <span style={{ color: selectedProject.HoursLeft < 0 ? "red" : "green" }}>
+                    {selectedProject.HoursLeft} h
+                  </span>
+                </p>
+                <hr/>
+
+                <strong>
+                  <StatusCheckboxes
+                    selectedStatus={selectedStatus}
+                    setSelectedStatus={setSelectedStatus}
+                  />
+                </strong>
 
               <div>
-              <button onClick={handleSubmit} className="mt-3 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-    Submit
-</button>
+                <br/>
+                <hr/>
+                <button onClick={handleSubmit} className="default-btn">
+                  Skicka
+                </button>
 
 
               </div>
@@ -147,6 +180,7 @@ export default function ChangeStatus() {
         {console.log(selectedPageId)}
         {console.log(selectedStatus)}
       </div>
+      </>
     );
   }
 }
