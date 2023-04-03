@@ -108,6 +108,8 @@ code {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  /* background-color:#145f748f;
+  border-radius: 25px; */
 }
 
 /* FirstPage.js cards */
@@ -326,7 +328,7 @@ footer {
   text-align: center;
   color: white;
   margin-top: auto; 
-  height: 50px; 
+  height: auto; 
   display: flex; 
   justify-content: center; 
   align-items: center;
