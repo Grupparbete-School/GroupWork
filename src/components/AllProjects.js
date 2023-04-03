@@ -27,7 +27,7 @@ const AllProjects = () => {
                   <div className="projectsCol">
                     <div className="card">
 
-                      <img src={image[index]} className="card-img-top" alt="Pictures of building projects" />
+                      <img src={item.ProjectImage.url} className="card-img-top" alt="Pictures of building projects" />
 
                       <div className="card-body">
                         <h5>
