@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from '../components/Navbar'; import Navbar2 from '../components/Navbar2';
-import ActiveProjects from "../components/ActiveProjects";
+import AllProjectsUser from "../components/AllProjectsUser";
 import FetchProjects from '../components/FetchProjects';
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,7 +15,7 @@ export default function PageChangeTime() {
 
   if (userRole === 'user') { 
     NavbarOne = <Navbar /> 
-    MainContent = <ActiveProjects />; 
+    MainContent = <AllProjectsUser />; 
   } else { 
     NavbarOne = <Navbar2 /> 
     MainContent = <FetchProjects /> 
