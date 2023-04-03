@@ -70,7 +70,6 @@ code {
 .card{
   width: 250px;
   padding: 10px;
-
 }
 
 .col{
@@ -132,12 +131,17 @@ code {
     align-items: center;
 }
 
+.ProjectsCard{
+  min-height: 548px;
+}
 /* FirstPage.js cards */
 .card-containerFP{
-  padding: 30px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+  grid-gap: 4rem;
+  justify-content: center;
+  align-content: center;
+  padding: 25px 15%;
 
 }
 
@@ -269,10 +273,11 @@ code {
   }
 
   .card-containerFP{
-    padding: 150px;
+    padding: 20px 15%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    grid-gap: 2rem
   }
   .list-container{
     top: 0;

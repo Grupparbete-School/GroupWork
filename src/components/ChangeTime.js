@@ -81,15 +81,12 @@ export default function ChangeTime() {
         <h3>Uppdatera tid</h3>
         <h6>Här kan man ändra tiden för ett projekt genom att klicka på "Ändra timmar"</h6>
         </div>
-      <div className="card-container">
+      <div className="projectsCardContainer">
               {projects.map((item, index) => {
                   return (
+                          <div className="projectsCol">
 
-                      <section >
-
-                          <div className="col">
-
-                            <div className="card">
+                            <div className="card ProjectsCard">
                               <img src={image[index]} className="card-img-top" alt="Pictures of building projects" />
                               <div className="card-body">
                                 <h5>
@@ -113,7 +110,10 @@ export default function ChangeTime() {
                                   </span>
                                   <br />
                                   <hr />
+                                  <div style={{maxHeight: '50px', overflowY: 'scroll' }}>
                                   Beskrivning: <br /> {item.Description} <br />
+                                  </div>
+                                  
                                 </p>
                                 <hr/>
                                
@@ -141,7 +141,6 @@ export default function ChangeTime() {
                                 className="default-btn"
                                   onClick={() => {
                                     setPageId(item.PageId);
-                                    setShowEditButton(false);
                                     setShowSaveButton(true);
                                   }}
                                 >
@@ -151,7 +150,6 @@ export default function ChangeTime() {
 
                         </div>
                         </div>
-                        </section>
                   );
               })}
       </div>
