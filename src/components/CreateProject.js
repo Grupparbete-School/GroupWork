@@ -116,7 +116,7 @@ export default function CreateProject() {
     <>
       <div className="page-prompt" role="alert">
           <h3>Lägga till projekt</h3>
-          <h6>Här kan man lägga till ett nytt projekt <br/>
+          <h6>Här kan man lägga till ett nytt projekt. <br/>
               Fyll i uppgifterna och spara ner.</h6>
       </div>
     <div className="flex justify-center items-center h-screen" style={{height: "auto", padding: "50px 10px"}}>
