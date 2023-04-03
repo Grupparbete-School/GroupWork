@@ -129,9 +129,9 @@ export default function AddEmployee() {
           onChange={(event) => setSelectedRole(event.target.value)}
         >
           <option value="">Välj roll</option>
-          <option value="User">Användare</option>
-          <option value="Owner">Ägare</option>
-          <option value="Project Manager">Projektledare</option>
+          <option value="user">Användare</option>
+          <option value="owner">Ägare</option>
+          <option value="project Manager">Projektledare</option>
         </select>
         
         <div className="flex justify-end mt-4">
