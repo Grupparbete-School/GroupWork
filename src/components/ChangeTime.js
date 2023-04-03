@@ -99,14 +99,17 @@ export default function ChangeTime() {
                                 <h6>
                                   {item.StartDate} -- {item.EndDate} <br />
                                 </h6>
-                                Status: <strong>{item.Status}</strong>
+                                Status:{" "}
+                                <span style={{ color: item.StatusColor }}>
+                                <strong>{item.Status}</strong>
+                                </span>
                                 <hr />
                                 <p>
                                   Budgeterad tid: {item.MaxHours} h<br />
                                   Arbetad tid: {item.UsedHours} h<br />
                                   Tid kvar:{" "}
                                   <span style={{ color: item.HoursLeft < 0 ? "red" : "green" }}>
-                                    {item.HoursLeft} h
+                                  <strong>{item.HoursLeft} h</strong>
                                   </span>
                                   <br />
                                   <hr />
