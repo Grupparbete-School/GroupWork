@@ -10,6 +10,7 @@ const navigation = [
   { name: 'Mina projekt', href: '/project' },
   { name: 'Lägg till tid', href: '/report' },
   { name: 'Lägg till kommentar', href: '/comment_ChangeStatus' },
+  { name: 'Ändra tidrapport', href: '/EditTimeReports' },
 ]
 
 

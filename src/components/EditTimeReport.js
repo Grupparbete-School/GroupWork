@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import '../index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function AddComment(){
+export default function EditTime(){
 
     const [error, setError] = useState('');
     const[loading, setLoading] = useState(false);
