@@ -9,6 +9,8 @@ import Report from './pages/Report';
 import Comment_ChangeStatus from './pages/Comment_ChangeStatus';
 import CreateProject from "./pages/Create_Project";
 import AddEmployee from "./pages/Add_Employee";
+import Edit_Time from "./pages/EditTimeReports"
+
 
 export default function App() {
   return (
@@ -23,6 +25,7 @@ export default function App() {
           <Route path="/comment_ChangeStatus" element={<Comment_ChangeStatus />} />
           <Route path="/createProject" element={<CreateProject />} />
           <Route path="/addEmployee" element={<AddEmployee />} />
+          <Route path="/editTimeReports" element={<Edit_Time />} />
         </Routes>
       </BrowserRouter>
       <Footer/>
