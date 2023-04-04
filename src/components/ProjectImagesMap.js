@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-const ProfileImage = () => {
+const ProjectImage = () => {
+
   const projectsUrl = "http://localhost:5000/projects";
 
   const [loading, setLoading] = useState(false);
@@ -48,4 +49,4 @@ const ProfileImage = () => {
     
 };
 
-export default ProfileImage;
+export default ProjectImage;

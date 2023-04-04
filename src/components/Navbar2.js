@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useContext } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars4Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from 'react-router-dom'
@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Badge from 'react-bootstrap/Badge';
 import ListGroup from 'react-bootstrap/ListGroup';
+import ProfileImage from './ProfileImage';
 
 const today = new Date();
 
@@ -22,7 +23,34 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar2(props) {
+export default function Navbar2(loggedInUserImage ,props) {
+
+  
+  const peopleUrl = "http://localhost:5000/people";
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [peoples2, setPeoples] = useState([]);
+
+  useEffect(() => {
+    fetch(peopleUrl)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setLoading(true);
+          setPeoples(result);
+        },
+        (error) => {
+          setLoading(true);
+          setError(error);
+        }
+      );
+  }, []);
+
+  const loggedInUserId = localStorage.getItem("userEmail"); 
+  const loggedInUser = peoples2.find(person => person.Email === loggedInUserId);
+console.log(loggedInUser)
+  const peoples = props.peoples;
 
   const [showNotifications, setShowNotifications] = useState(false);
   const [totalHours, setTotalHours] = useState([]);
@@ -47,8 +75,15 @@ export default function Navbar2(props) {
       )
   }, [])
 
+  const data = ProfileImage;
+
   return (
     <>
+    
+    
+    {console.log(data)}
+
+    
       <Disclosure
         as="nav"
         className="bg-cyan-900"
@@ -163,12 +198,19 @@ export default function Navbar2(props) {
                     <div>
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="sr-only">Open user menu</span>
-                        <img
-                          className="h-8 w-8 rounded-full"
-                          src="https://th.bing.com/th/id/OIP.IhKq8O_jodzeRSP49asH5QHaFL?w=239&h=180&c=7&r=0&o=5&pid=1.7"
-                          alt=""
-                          title="Open user menu"
-                        />
+
+                          
+                            <img
+                            className="h-8 w-8 rounded-full"
+                            src={loggedInUser?.ProfileImage.url}
+                            alt=""
+                            title="Open user menu"
+                            
+                          />
+                         
+                        
+                       
+                        
                       </Menu.Button>
                     </div>
                     <Transition
