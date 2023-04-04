@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars4Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from 'react-router-dom'
@@ -12,11 +12,38 @@ const navigation = [
   { name: 'Lägg till kommentar', href: '/comment_ChangeStatus' },
 ]
 
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
+
 export default function Navbar(props) {
+
+  const peopleUrl = "http://localhost:5000/people";
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [peoples2, setPeoples] = useState([]);
+
+  useEffect(() => {
+    fetch(peopleUrl)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setLoading(true);
+          setPeoples(result);
+        },
+        (error) => {
+          setLoading(true);
+          setError(error);
+        }
+      );
+  }, []);
+
+  const loggedInUserId = localStorage.getItem("userEmail"); 
+  const loggedInUser = peoples2.find(person => person.Email === loggedInUserId);
+
   return (
     <>
     <Disclosure 
@@ -99,7 +126,7 @@ export default function Navbar(props) {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://th.bing.com/th/id/OIP.IhKq8O_jodzeRSP49asH5QHaFL?w=239&h=180&c=7&r=0&o=5&pid=1.7"
+                        src={loggedInUser?.ProfileImage.url}
                         alt=""
                       />
                     </Menu.Button>
