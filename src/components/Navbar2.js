@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Badge from 'react-bootstrap/Badge';
 import ListGroup from 'react-bootstrap/ListGroup';
-import ProfileImage from './ProfileImage';
 
 const today = new Date();
 
@@ -23,7 +22,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar2(loggedInUserImage ,props) {
+export default function Navbar2(props) {
 
   
   const peopleUrl = "http://localhost:5000/people";
@@ -75,14 +74,10 @@ console.log(loggedInUser)
       )
   }, [])
 
-  const data = ProfileImage;
-
+ 
   return (
     <>
-    
-    
-    {console.log(data)}
-
+  
     
       <Disclosure
         as="nav"
